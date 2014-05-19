@@ -1,0 +1,25 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig.keep='high', echo=TRUE, dpi=300, out.width=700, prompt=TRUE, comment='##', results='markup', eval=FALSE)
+# See yihui.name/knitr/options for more Knitr options.
+```
+
+dbcreator, a module for creating organism-specific databases of genome annotation elements
+========================================================
+
+Making the database (referred to as the `GRSNP database`) should be the first step before running GenomeRunner server.
+
+GenomeRunner works with multiple database versions, to ensure reproducibility of the results obtained at a specific time point. The database name example is **db_1.01_05.12.2014**. It consists of **db** prefix, the **1.01** database version, and the **05.12.2014** date when the database was created.
+
+Note that throughout this guide `[dir]` represents the **full path** to the GRSNP database (i.e `[dir] = /home/testuser/Documents/db_1.01_05.12.2014`). Do not use `~` shortcuts.
+
+```{r}
+mkdir [dir]
+cd [dir]  # Recommended: dbcreator should be executed within [dir] folder
+python -m grsnp.dbcreator -g mm9 -d [dir]
+```
+
+The **-d** parameter designates where the database is to be installed. Required.
+
+The **-g** parameter indicates organism and genome assembly version. Organism-specific genome annotation data are placed in the appropriate subfolders, and automatically processed by the grsnp.server. Examples of organism codes: hg19, mm9, rn4, danRer7, dm3, ce6, sacCer3. Required.

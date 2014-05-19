@@ -1,0 +1,18 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig.keep='high', echo=TRUE, dpi=300, out.width=700, prompt=TRUE, comment='##', results='markup', eval=FALSE)
+# See yihui.name/knitr/options for more Knitr options.
+```
+
+Modules
+========================================================
+
+GenomeRunner is installed as a `grsnp` package. There are three modules in the package:
+
+1. `dbcreator` # A module for creating organism-specific database
+2. `server` # main module
+3. `optimizer` # A module to pre-calculate background overlaps with all genomic features
+
+
+Before running GenomeRunner, the first step involves creating a database of genomic annotations using `dbcreator` module. Then, GenomeRunner can be run using the `server` module.
