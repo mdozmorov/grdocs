@@ -8,4 +8,3 @@
   * [Background](dbcreator/dbcreatorBackground.md)
   * [Custom data](dbcreator/dbcreatorCustom.md)
 	* [dbcreator FAQ](dbcreator/dbcreatorFAQ.md)
-  
