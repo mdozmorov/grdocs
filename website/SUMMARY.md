@@ -7,4 +7,5 @@
   * [How dbcreator works](dbcreator/dbcreatorWorks.md)
   * [Background](dbcreator/dbcreatorBackground.md)
   * [Custom data](dbcreator/dbcreatorCustom.md)
-	* [dbcreator FAQ](dbcreator/dbcreatorFAQ.md)
+  * [dbcreator FAQ](dbcreator/dbcreatorFAQ.md)
+* [template](template.md)

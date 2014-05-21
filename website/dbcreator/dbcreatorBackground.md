@@ -2,7 +2,7 @@
 
 
 Background
-==========
+=============
 
 GenomeRunner uses a `background`, or universe, of all genomic regions for random sampling. For SNPs, a background may be a set of all currently reported SNPs (useful for the analysis of the sets of SNPs from Genome-Wide Association Studies), or a set of all SNPs on a microarray chip (e.g., ImmunoChip, MetaboChip). Think about the background as all SNPs tested in a GWAS study, and the genomic features of interest (FOIs) as a subset of SNPs significantly associated with a disease/phenotype.
 

@@ -7,17 +7,18 @@ getwd()
 # check()
 # build()
 
+# devtools::install_github("jbryer/Rgitbook")
 require(Rgitbook)
 ls('package:Rgitbook') # List the public functions
-gitbookInfo()
 installGitbook()
+gitbookInfo()
 checkForGitbook()
 newGitbook('website') # This will create a test project
 
 # Build the Gitbook website
 buildRmd(clean=TRUE)
-buildGitbook('website', mathjax=F)
-# openGitbook()
+buildGitbook('website')
+openGitbook()
 # publishGitbook('jbryer/Rgitbook')
 # 
 # # Other formats
