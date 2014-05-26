@@ -8,7 +8,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 Installing GenomeRunner
 ========================================================
 
-GenomeRunner depends on many modules and packages. They are installed using `setup.sh` script. Sudo privileges required. These installation instructions were tested on freshly installed Ubuntu Linux 13.10 (Saucy Salamander).
+GenomeRunner depends on many modules and packages. They are installed using the `setup.sh` script, sudo privileges required. This script was tested on freshly installed Ubuntu Linux 13.10 (Saucy Salamander). Contect the authors with questions.
 
 To install GenomeRunner locally, clone GenomeRunner's repository locally (`git` must be installed, `sudo apt-get install git`), and run `setup.sh`.
 
