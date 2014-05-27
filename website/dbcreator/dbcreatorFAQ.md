@@ -26,7 +26,7 @@ dbcreator FAQ
 
 
 ```r
-> rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
+rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
 ```
 
 

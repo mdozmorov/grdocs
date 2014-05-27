@@ -16,55 +16,55 @@ An example of the complete database structure may look like:
 
 
 ```r
-> .
-> ├── custom_data
-> │   ├── backgrounds
-> │   │   ├── hg19
-> │   │   ├── mm10
-> │   │   └── mm9
-> │   ├── fois
-> │   │   ├── hg19
-> │   │   │   ├── GWASmore15
-> │   │   ├── mm10
-> │   │   ├── mm9
-> │   └── gfs
-> │       ├── hg19
-> │       │   ├── gwasCatalog
-> │       │   ├── H3K4me3
-> │       │   └── tfbsEncode
-> │       ├── mm10
-> │       └── mm9
-> │   
-> ├── downloads
-> │   
-> ├── grsnp_db
-> │   └── hg19
-> │       ├── compGeno
-> │       ├── ENCODE
-> │       │   ├── BroadHistone
-> │       │   │   ├── Tier1
-> │       │   │   │   ├── Gm12878
-> │       │   │   │   ├── H1hesc
-> │       │   │   │   └── K562
-> │       │   │   ├── Tier2
-> │       │   │   │   ├── A549
-> │       ├── expression
-> │       ├── genes
-> │       ├── map
-> │       ├── neandertal
-> │       ├── phenDis
-> │       ├── regulation
-> │       ├── rep
-> │       ├── rna
-> │       ├── unsorted
-> │       └── varRep
-> │   
-> ├── grsnp_db_25
-> │   
-> ├── grsnp_db_50
-> │   
-> ├── results
-> │   
-> └── uploads
+.
+├── custom_data
+│   ├── backgrounds
+│   │   ├── hg19
+│   │   ├── mm10
+│   │   └── mm9
+│   ├── fois
+│   │   ├── hg19
+│   │   │   ├── GWASmore15
+│   │   ├── mm10
+│   │   ├── mm9
+│   └── gfs
+│       ├── hg19
+│       │   ├── gwasCatalog
+│       │   ├── H3K4me3
+│       │   └── tfbsEncode
+│       ├── mm10
+│       └── mm9
+│   
+├── downloads
+│   
+├── grsnp_db
+│   └── hg19
+│       ├── compGeno
+│       ├── ENCODE
+│       │   ├── BroadHistone
+│       │   │   ├── Tier1
+│       │   │   │   ├── Gm12878
+│       │   │   │   ├── H1hesc
+│       │   │   │   └── K562
+│       │   │   ├── Tier2
+│       │   │   │   ├── A549
+│       ├── expression
+│       ├── genes
+│       ├── map
+│       ├── neandertal
+│       ├── phenDis
+│       ├── regulation
+│       ├── rep
+│       ├── rna
+│       ├── unsorted
+│       └── varRep
+│   
+├── grsnp_db_25
+│   
+├── grsnp_db_50
+│   
+├── results
+│   
+└── uploads
 ```
 

@@ -16,10 +16,8 @@ Some genome annotation data may contain non-standard chromosome names, such as *
 
 
 ```r
-> for file in find [dir] -type f -name "*.bed.gz"; do f=basename $file; d=dirname $file; echo $file; zcat $file | grep "\bchr[0-9XYM][^_]\b" | awk 'BEGIN {OFS="\t"} { if ( $3 <= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }' | sort -k1,1 -k2,2n -k3,3n | uniq > $d/${f%???} && rm $file; bgzip ${file%???} && tabix $file; done
+for file in find [dir] -type f -name "*.bed.gz"; do f=basename $file; d=dirname $file; echo $file; zcat $file | grep "\bchr[0-9XYM][^_]\b" | awk 'BEGIN {OFS="\t"} { if ( $3 <= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }' | sort -k1,1 -k2,2n -k3,3n | uniq > $d/${f%???} && rm $file; bgzip ${file%???} && tabix $file; done
 ```
 
 
 The logic here is to process each BED file keeping only standard chromosome names ("\bchr[0-9XYM][^_]\b" regex). Also,`awk` ensures that end genomic coordinates are larger than the start coordinates, and adjusts offending lines accordingly. The standardized files are then compressed with `bgzip` and indexed with `tabix`.
-
-Fixme: Automate this into the `dbcreator` module.

@@ -10,7 +10,7 @@ When you click the **Knit HTML** button a web page will be generated that includ
 
 
 ```r
-> summary(cars)
+summary(cars)
 ```
 
 
@@ -18,7 +18,7 @@ You can also embed plots, for example:
 
 
 ```r
-> plot(cars)
+plot(cars)
 ```
 
 

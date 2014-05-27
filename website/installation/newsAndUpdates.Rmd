@@ -5,7 +5,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 # See yihui.name/knitr/options for more Knitr options.
 ```
 
-News and uptades
+News and updates
 ========================================================
 
 Coming soon...

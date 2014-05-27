@@ -10,7 +10,7 @@ To install GenomeRunner locally, clone GenomeRunner's repository locally (`git` 
 
 
 ```r
-> git clone https://github.com/mdozmorov/genome_runner.git
-> ./setup.sh
+git clone https://github.com/mdozmorov/genome_runner.git
+./setup.sh
 ```
 

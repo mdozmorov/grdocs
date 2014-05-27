@@ -1,0 +1,21 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig.keep='high', echo=TRUE, dpi=300, out.width=700, prompt=FALSE, comment='##', results='markup', eval=FALSE)
+# See yihui.name/knitr/options for more Knitr options.
+```
+
+server, a module to run web interface
+========================================================
+
+Before starting the web server, ensure you've created the [`GRSNP database`](../dbcreator/dbcreator.md) and have at least one  [`background` file](../dbcreator/dbcreatorBackground.md).
+
+We start the web interface as:
+
+```{r}
+python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1]
+```
+
+where the **-d** parameter accepts a single or comma-separated *full paths* to the databases. The **-r** parameter specifies the path to the `results` folder.
+
+Access GenomeRunner on [http://localhost:8000/gr/](http://localhost:8000/gr/).
