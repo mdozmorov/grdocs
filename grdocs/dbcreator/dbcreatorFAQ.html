@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>dbcreator FAQ | GenomeRunner</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="mdozmorov">
+        <meta name="description" content="GenomeRunner Web is a tool for functional interpretation of sets of single nucleotide polymorphisms (SNPs) by considering their co-localization with functional/regulatory genome annotation data (epigenomic elements). It is particularly useful for interpretation of functional roles of rare variants and SNPs in non-protein coding regions. An example of GenomeRunner&#39;s results can be found in the analysis of Sjogren&#39;s syndrome GWAS (Nature Genetics), where it identified RFX5 transcription factor binding site as the most statistically significantly co-localized with the disease-associated SNPs.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../optimizer/optimizer.html" />
+        
+        
+        <link rel="prev" href="../dbcreator/dbcreatorCustom.html" />
+        
+
+        <meta property="og:title" content="dbcreator FAQ | GenomeRunner">
+        <meta property="og:site_name" content="GenomeRunner">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/mdozmorov">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="mdozmorov/mdozmorov.github.io" data-level="3.6" data-basepath=".." data-revision="1401316552020">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/mdozmorov/mdozmorov.github.io" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/mdozmorov/mdozmorov.github.io/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/mdozmorov/mdozmorov.github.io/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >GenomeRunner</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://github.com/mdozmorov" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/mdozmorov/mdozmorov.github.io/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/mdozmorov/mdozmorov.github.io/edit/master/dbcreator/dbcreatorFAQ.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../index.html"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li class="chapter " data-level="1" data-path="installation/newsAndUpdates.html">
+                
+                <a href="../installation/newsAndUpdates.html">
+                    <i class="fa fa-check"></i> <b>1.</b> News and Updates
+                </a>
+                
+                
+            </li>
+        
+            <li class="chapter " data-level="2" data-path="installation/installation.html">
+                
+                <a href="../installation/installation.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Installation
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="installation/modules.html">
+                            
+                            <a href="../installation/modules.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Modules
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="3" data-path="dbcreator/dbcreator.html">
+                
+                <a href="../dbcreator/dbcreator.html">
+                    <i class="fa fa-check"></i> <b>3.</b> dbcreator module
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="dbcreator/dbcreatorWorks.html">
+                            
+                            <a href="../dbcreator/dbcreatorWorks.html">
+                                <i class="fa fa-check"></i> <b>3.1.</b> How dbcreator works
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="dbcreator/dbcreatorFiltering.html">
+                            
+                            <a href="../dbcreator/dbcreatorFiltering.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Filtering
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="dbcreator/dbcreatorStructure.html">
+                            
+                            <a href="../dbcreator/dbcreatorStructure.html">
+                                <i class="fa fa-check"></i> <b>3.3.</b> Database structure
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="dbcreator/dbcreatorBackground.html">
+                            
+                            <a href="../dbcreator/dbcreatorBackground.html">
+                                <i class="fa fa-check"></i> <b>3.4.</b> Background
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.5" data-path="dbcreator/dbcreatorCustom.html">
+                            
+                            <a href="../dbcreator/dbcreatorCustom.html">
+                                <i class="fa fa-check"></i> <b>3.5.</b> Custom data
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.6" data-path="dbcreator/dbcreatorFAQ.html">
+                            
+                            <a href="../dbcreator/dbcreatorFAQ.html">
+                                <i class="fa fa-check"></i> <b>3.6.</b> dbcreator FAQ
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="4" data-path="optimizer/optimizer.html">
+                
+                <a href="../optimizer/optimizer.html">
+                    <i class="fa fa-check"></i> <b>4.</b> optimizer module
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="optimizer/optimizerFAQ.html">
+                            
+                            <a href="../optimizer/optimizerFAQ.html">
+                                <i class="fa fa-check"></i> <b>4.1.</b> optimizer FAQ
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="5" data-path="server/server.html">
+                
+                <a href="../server/server.html">
+                    <i class="fa fa-check"></i> <b>5.</b> server module
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="server/serverFAQ.html">
+                            
+                            <a href="../server/serverFAQ.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> server FAQ
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="6" data-path="hypergeom4/hypergeom4.html">
+                
+                <a href="../hypergeom4/hypergeom4.html">
+                    <i class="fa fa-check"></i> <b>6.</b> command line module
+                </a>
+                
+                
+            </li>
+        
+            <li class="chapter " data-level="7" data-path="references.html">
+                
+                <a href="../references.html">
+                    <i class="fa fa-check"></i> <b>7.</b> References
+                </a>
+                
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 62.5%;min-width: 56.25%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../installation/newsAndUpdates.html" title="News and Updates" class="chapter done new-chapter" data-progress="1" style="left: 6.25%;"></a>
+    
+        <a href="../installation/installation.html" title="Installation" class="chapter done new-chapter" data-progress="2" style="left: 12.5%;"></a>
+    
+        <a href="../installation/modules.html" title="Modules" class="chapter done " data-progress="2.1" style="left: 18.75%;"></a>
+    
+        <a href="../dbcreator/dbcreator.html" title="dbcreator module" class="chapter done new-chapter" data-progress="3" style="left: 25%;"></a>
+    
+        <a href="../dbcreator/dbcreatorWorks.html" title="How dbcreator works" class="chapter done " data-progress="3.1" style="left: 31.25%;"></a>
+    
+        <a href="../dbcreator/dbcreatorFiltering.html" title="Filtering" class="chapter done " data-progress="3.2" style="left: 37.5%;"></a>
+    
+        <a href="../dbcreator/dbcreatorStructure.html" title="Database structure" class="chapter done " data-progress="3.3" style="left: 43.75%;"></a>
+    
+        <a href="../dbcreator/dbcreatorBackground.html" title="Background" class="chapter done " data-progress="3.4" style="left: 50%;"></a>
+    
+        <a href="../dbcreator/dbcreatorCustom.html" title="Custom data" class="chapter done " data-progress="3.5" style="left: 56.25%;"></a>
+    
+        <a href="../dbcreator/dbcreatorFAQ.html" title="dbcreator FAQ" class="chapter done " data-progress="3.6" style="left: 62.5%;"></a>
+    
+        <a href="../optimizer/optimizer.html" title="optimizer module" class="chapter  new-chapter" data-progress="4" style="left: 68.75%;"></a>
+    
+        <a href="../optimizer/optimizerFAQ.html" title="optimizer FAQ" class="chapter  " data-progress="4.1" style="left: 75%;"></a>
+    
+        <a href="../server/server.html" title="server module" class="chapter  new-chapter" data-progress="5" style="left: 81.25%;"></a>
+    
+        <a href="../server/serverFAQ.html" title="server FAQ" class="chapter  " data-progress="5.1" style="left: 87.5%;"></a>
+    
+        <a href="../hypergeom4/hypergeom4.html" title="command line module" class="chapter  new-chapter" data-progress="6" style="left: 93.75%;"></a>
+    
+        <a href="../references.html" title="References" class="chapter  new-chapter" data-progress="7" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4">
+                    
+                        <h1 id="dbcreator-faq">dbcreator FAQ</h1>
+<ul>
+<li>How do I install databases for multiple organism?</li>
+</ul>
+<blockquote>
+<p>Simply re-run the <code>dbcreator</code> module and designate a different organism code with the <strong>-g</strong> parameter.</p>
+</blockquote>
+<ul>
+<li>Can I run the <code>dbcreator</code> module on an existing database?</li>
+</ul>
+<blockquote>
+<p>Yes, the <code>dbcreator</code> module skips GFs that have already been installed.</p>
+</blockquote>
+<ul>
+<li>The <code>dbcreator</code> module is taking a long time to run. Can I terminate it?</li>
+</ul>
+<blockquote>
+<p>Yes, and you can restart it later. The <code>dbcreator</code> module flags partially completed GFs with a &#39;.tmp&#39; extension. These GFs are not visible to the <code>server</code> module, and will be installed correctly upon the next run.</p>
+</blockquote>
+<ul>
+<li>Can I download individual GFs?</li>
+</ul>
+<blockquote>
+<p>Individual GFs can be installed by giving the name to the <strong>-f</strong> parameter (i.e <code>-f knownGene</code>).</p>
+</blockquote>
+<ul>
+<li>Can I simply download all UCSC data and let the <code>dbcreator</code> module work with it?</li>
+</ul>
+<blockquote>
+<p>In fact, this is the recommended way. Rsync can be used to mirror the USCS data files. Simply create <code>[dir]/downloads/</code> folder and execute the following command within it:</p>
+</blockquote>
+<pre><code class="lang-r">rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
+</code></pre>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../dbcreator/dbcreatorCustom.html" class="navigation navigation-prev " aria-label="Previous page: Custom data"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../optimizer/optimizer.html" class="navigation navigation-next " aria-label="Next page: optimizer module"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>
