@@ -1,7 +1,7 @@
 
 
 
-News and uptades
+News and updates
 ========================================================
 
 Coming soon...

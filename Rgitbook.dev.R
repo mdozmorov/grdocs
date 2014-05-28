@@ -1,3 +1,7 @@
+library(devtools)
+install_github("knitcitations", "cboettig")
+library(knitcitations)
+
 require(devtools)
 getwd()
 

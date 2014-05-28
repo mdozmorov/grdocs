@@ -4,7 +4,7 @@
 Installing GenomeRunner
 ========================================================
 
-GenomeRunner depends on many modules and packages. They are installed using the `setup.sh` script, sudo privileges required. This script was tested on freshly installed Ubuntu Linux 13.10 (Saucy Salamander). Contect the authors with questions.
+GenomeRunner depends on many modules and packages. Install them using the `setup.sh` script, sudo privileges required. We tested these installation steps on freshly installed Ubuntu Linux 13.10 (Saucy Salamander), and expect them to work on other Ubuntu flavors. Contact the authors with questions.
 
 To install GenomeRunner locally, clone GenomeRunner's repository locally (`git` must be installed, `sudo apt-get install git`), and run `setup.sh`.
 

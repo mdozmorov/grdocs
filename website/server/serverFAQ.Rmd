@@ -19,15 +19,17 @@ server FAQ
 celery flower --broker=redis://localhost:7775/
 ```
 
-* I have port 8000 blocked by firewall. Can I run GenomeRunner on a different port?
+* I have port 8000 blocked by ~~an evil admin~~ a firewall. Can I run GenomeRunner on a different port?
 
 > You bet. Simply use **-p** patameter to set any port you wish, e.g., -p 8080.
 
 * I don't have many ports open. In fact, only port 80 (http) is available on my machine - what whall I do to run GenomeRunner?
 
-> A workaround would be to create a redirection rule, and start the server on redirected port
+> A workaround would be to create a redirection rule, and start the server on the redirected port
 ```{r}
+# Redirect port
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+# Start the server normally
 python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
 ```
 

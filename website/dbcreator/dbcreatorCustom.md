@@ -7,7 +7,7 @@ Custom data
 Custom features of interest (FOIs)
 -----------------------------
 
-Sometimes we may wand to have sets of features of interest readily accessible for the analyses, such as demo sets, or sets of random features. We may place the BED files with genomic coordinates of the FOIs in the subfolders under `[dir]/custom_data/fois/[organism]/`. The names of the subfolders serve as descriptions of the sets of FOIs.
+Sometimes we may want to have sets of features of interest readily accessible for the analysis, such as demo sets, or sets of random features. We may place the BED files with genomic coordinates of such FOIs in the subfolders under the `[dir]/custom_data/fois/[organism]/` folder. The names of the subfolders serve as descriptions of the sets of FOIs.
 
 An example of the `fois` folder may look like:
 
@@ -23,7 +23,7 @@ An example of the `fois` folder may look like:
 Custom genomic features (GFs)
 -----------------------
 
-Some genome annotation tracks contain information about different biologically relevant features, combined together. An example of such combined table is the `wgEncodeRegTfbsClusteredV3` track, containing experimentally detected transcription factor binding sites for 161 different transcription factors. We may want to consider the data for each transcription factor separately. We process such combined data using the `extract_UCSC.py` script (see `db` subfolder in the [source code](https://github.com/mdozmorov/genome_runner) folder). We place extracted files in the `[dir]/custom_data/gfs/hg19/tfbsEncode` folder. The `tfbsEncode` GFs will be accessible through GenomeRunner's web interface.
+Some genome annotation tracks contain information about different biologically relevant features, combined together. An example of such combined table is the `wgEncodeRegTfbsClusteredV3` track, containing experimentally detected transcription factor binding sites for 161 different transcription factors. We may want to consider the data for each transcription factor separately. We process such combined data using the `extract_UCSC.py` script (see the `db` subfolder in the [source code](https://github.com/mdozmorov/genome_runner) folder). We place extracted BED files in the `[dir]/custom_data/gfs/hg19/tfbsEncode` folder. The `tfbsEncode` GFs will be accessible through GenomeRunner's web interface.
 
 It is a good idea to remove special characters from file names, if any, by running:
 

@@ -15,5 +15,5 @@
 * [server module](server/server.md)
   * [server FAQ](server/serverFAQ.md)
 * [command line module](hypergeom4/hypergeom4.md)
-* [Definitions](misc/definitions.md)
+# * [Definitions](misc/definitions.md)
 * [References](references.md)

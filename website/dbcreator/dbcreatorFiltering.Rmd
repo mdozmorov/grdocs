@@ -7,7 +7,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 
 Filtering by score
 -------------------
-Some genome annotation tracks have "score" column, generally indicating the strength of measured signal within genomic regions. Sometimes we want to consider only genomic regions with high signal, ignoring those with low signal.
+Some genome annotation tracks have a "score" column, generally indicating the strength of measured signal within genomic regions. Sometimes we want to consider only genomic regions with high signal, ignoring those with low signal.
 
 The "score" generally ranges from 0 to 1000; however, there are multiple exceptions from this rule. Therefore, we implement % threshold filtering. For example, if for a given genome annotation track the score ranges from 0 to 1000, the 25% threshold will select genomic features with score larger than 250.
 
@@ -17,8 +17,7 @@ We create subdatabases containing only genome annotation tracks filtered by a gi
 python -m grsnp.dbcreator -g hg19 -d [dir] -o -s 25,50,75
 ```
 
-The **-o** parameter starts processing of the unfiltered database.
-The **-s** parameter contains comma-separated % thresholds.
+The **-o** parameter starts processing of the unfiltered database. The **-s** parameter contains comma-separated % thresholds.
 
 This filtering step will create the following folder structure containing filtered data:
 

@@ -19,5 +19,7 @@ optimizer FAQ
 * How is the `bkg_overlaps.gr` file structured?
 
 > It is a tab-separated text file containing the following information:
+
 > [Absolute path to the GF file]tab[Absolute path to the default background_one]:[bgs_obs]:[n_bgs],[Absolute path to the default background_two]:[bgs_obs]:[n_bgs] etc.,
+
 > where [n_bgs] is the total number of regions in the background file, and [bgs_obs] is the number of regions overlapping a genomic feature.

@@ -23,3 +23,5 @@ for file in find [dir] -type f -name "*.bed.gz"; do f=basename $file; d=dirname 
 ```
 
 The logic here is to process each BED file keeping only standard chromosome names (`"\bchr[0-9XYM][^_]\b"` regex). Also,`awk` ensures that the end genomic coordinates are larger than the start coordinates, and adjusts offending lines accordingly. The standardized files are then compressed with `bgzip` and indexed with `tabix`.
+
+The `dbcreator` module creates a log file (genomerunner_dbcreator.log) in the `[dir]` folder.

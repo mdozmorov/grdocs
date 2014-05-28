@@ -26,7 +26,7 @@ dbcreator FAQ
 
 * Can I simply download all UCSC data and let the `dbcreator` module work with it?
 
-> In fact, this is the recommended way. Rsync can be used to mirror the USCS data files. Simply create `[dir]/downloads/` folder and execute:
+> In fact, this is the recommended way. Rsync can be used to mirror the USCS data files. Simply create `[dir]/downloads/` folder and execute the following command within it:
 
 ```{r}
 rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
