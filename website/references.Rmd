@@ -3,7 +3,7 @@
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 # Uncomment to list all items in the BibTeX file.
 cleanbib()
-bib <- read.bibtex("website//references.bib")
+bib <- read.bibtex("references.bib")
 for(i in names(bib)) { print(i); citep(bib[[i]]) }
 ```
 
