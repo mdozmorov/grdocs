@@ -21,8 +21,8 @@ newGitbook('website') # This will create a test project
 
 # Build the Gitbook website
 buildRmd(clean=TRUE)
-buildGitbook('website')
-openGitbook()
+buildGitbook('website', out.dir="grdocs")
+openGitbook(out.dir="grdocs")
 # publishGitbook('jbryer/Rgitbook')
 # 
 # # Other formats
