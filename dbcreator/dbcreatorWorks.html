@@ -42,11 +42,11 @@
 
 
         
-    <div class="book" data-github="mdozmorov/mdozmorov.github.io" data-level="3.1" data-basepath=".." data-revision="1401316552020">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="3.1" data-basepath=".." data-revision="1402153135415">
     <div class="book-header">
     <!-- Actions Left -->
     
-    <a href="https://github.com/mdozmorov/mdozmorov.github.io" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    <a href="https://github.com/mdozmorov/grdocs" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
     
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
     <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
@@ -90,8 +90,8 @@
     
 
     
-    <a href="https://github.com/mdozmorov/mdozmorov.github.io/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
-    <a href="https://github.com/mdozmorov/mdozmorov.github.io/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    <a href="https://github.com/mdozmorov/grdocs/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/mdozmorov/grdocs/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
     
 
     <!-- Title -->
@@ -114,13 +114,13 @@
 
         
         <li>
-            <a href="https://github.com/mdozmorov/mdozmorov.github.io/issues" target="blank"class="issues-link">Questions and Issues</a>
+            <a href="https://github.com/mdozmorov/grdocs/issues" target="blank"class="issues-link">Questions and Issues</a>
         </li>
         
 
         
         <li>
-            <a href="https://github.com/mdozmorov/mdozmorov.github.io/edit/master/dbcreator/dbcreatorWorks.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/mdozmorov/grdocs/edit/master/dbcreator/dbcreatorWorks.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -352,7 +352,7 @@
 </li>
 </ul>
 <p>Some genome annotation data may contain non-standard chromosome names, such as <em>chr1_gl000192_random</em>, <em>chr6_ssto_hap7</em>, <em>chrUn_gl000248</em>. These regions will introduce artefacts in the p-value calculations. Therefore, it is a good idea to post-process the database by running:</p>
-<pre><code class="lang-r"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> find [dir] -type f -name <span class="hljs-string">"*.bed.gz"</span>; do f=basename $file; d=dirname $file; echo $file; zcat $file | grep <span class="hljs-string">"\bchr[0-9XYM][^_]\b"</span> | awk <span class="hljs-string">'BEGIN {OFS="\t"} { if ( $3 &lt;= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }'</span> | sort -k1,<span class="hljs-number">1</span> -k2,2n -k3,3n | uniq &gt; $d/${f%???} &amp;&amp; rm $file; bgzip ${file%???} &amp;&amp; tabix $file; done
+<pre><code class="lang-r"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> `find [dir] -type f -name "*.bed.gz"`; do `f=basename $file`; d=`dirname $file; echo $file`; zcat $file | grep <span class="hljs-string">"\bchr[0-9XYM][^_]\b"</span> | awk <span class="hljs-string">'BEGIN {OFS="\t"} { if ( $3 &lt;= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }'</span> | sort -k1,<span class="hljs-number">1</span> -k2,2n -k3,3n | uniq &gt; $d/${f%???} &amp;&amp; rm $file; bgzip ${file%???} &amp;&amp; tabix $file; done
 </code></pre>
 <p>The logic here is to process each BED file keeping only standard chromosome names (<code>&quot;\bchr[0-9XYM][^_]\b&quot;</code> regex). Also,<code>awk</code> ensures that the end genomic coordinates are larger than the start coordinates, and adjusts offending lines accordingly. The standardized files are then compressed with <code>bgzip</code> and indexed with <code>tabix</code>.</p>
 <p>The <code>dbcreator</code> module creates a log file (genomerunner_dbcreator.log) in the <code>[dir]</code> folder.</p>
