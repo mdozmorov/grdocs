@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Background | GenomeRunner</title>
+        <title>Command line FAQ | GenomeRunner</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../dbcreator/dbcreatorCustom.html" />
+        <link rel="next" href="../references.html" />
         
         
-        <link rel="prev" href="../dbcreator/dbcreatorStructure.html" />
+        <link rel="prev" href="../hypergeom4/results.html" />
         
 
-        <meta property="og:title" content="Background | GenomeRunner">
+        <meta property="og:title" content="Command line FAQ | GenomeRunner">
         <meta property="og:site_name" content="GenomeRunner">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.4" data-basepath=".." data-revision="1402282482484">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="9.2" data-basepath=".." data-revision="1402282482484">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/mdozmorov/grdocs/edit/master/dbcreator/dbcreatorBackground.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/mdozmorov/grdocs/edit/master/hypergeom4/hypergeom4Faq.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -343,7 +343,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 57.142857142857146%;min-width: 52.38095238095238%;"></div>
+        <div class="inner" style="width: 100%;min-width: 95.23809523809524%;"></div>
     </div>
     <div class="chapters">
     
@@ -373,47 +373,38 @@
     
         <a href="../dbcreator/dbcreatorBackground.html" title="Background" class="chapter done " data-progress="6.4" style="left: 57.142857142857146%;"></a>
     
-        <a href="../dbcreator/dbcreatorCustom.html" title="Custom data" class="chapter  " data-progress="6.5" style="left: 61.904761904761905%;"></a>
+        <a href="../dbcreator/dbcreatorCustom.html" title="Custom data" class="chapter done " data-progress="6.5" style="left: 61.904761904761905%;"></a>
     
-        <a href="../dbcreator/dbcreatorFAQ.html" title="Dbcreator FAQ" class="chapter  " data-progress="6.6" style="left: 66.66666666666667%;"></a>
+        <a href="../dbcreator/dbcreatorFAQ.html" title="Dbcreator FAQ" class="chapter done " data-progress="6.6" style="left: 66.66666666666667%;"></a>
     
-        <a href="../optimizer/optimizer.html" title="Optimizer module" class="chapter  new-chapter" data-progress="7" style="left: 71.42857142857143%;"></a>
+        <a href="../optimizer/optimizer.html" title="Optimizer module" class="chapter done new-chapter" data-progress="7" style="left: 71.42857142857143%;"></a>
     
-        <a href="../optimizer/optimizerFAQ.html" title="Optimizer FAQ" class="chapter  " data-progress="7.1" style="left: 76.19047619047619%;"></a>
+        <a href="../optimizer/optimizerFAQ.html" title="Optimizer FAQ" class="chapter done " data-progress="7.1" style="left: 76.19047619047619%;"></a>
     
-        <a href="../server/server.html" title="Server module" class="chapter  new-chapter" data-progress="8" style="left: 80.95238095238095%;"></a>
+        <a href="../server/server.html" title="Server module" class="chapter done new-chapter" data-progress="8" style="left: 80.95238095238095%;"></a>
     
-        <a href="../server/serverFAQ.html" title="Server FAQ" class="chapter  " data-progress="8.1" style="left: 85.71428571428571%;"></a>
+        <a href="../server/serverFAQ.html" title="Server FAQ" class="chapter done " data-progress="8.1" style="left: 85.71428571428571%;"></a>
     
-        <a href="../hypergeom4/hypergeom4.html" title="Command line module" class="chapter  new-chapter" data-progress="9" style="left: 90.47619047619048%;"></a>
+        <a href="../hypergeom4/hypergeom4.html" title="Command line module" class="chapter done new-chapter" data-progress="9" style="left: 90.47619047619048%;"></a>
     
-        <a href="../hypergeom4/results.html" title="Results" class="chapter  " data-progress="9.1" style="left: 95.23809523809524%;"></a>
+        <a href="../hypergeom4/results.html" title="Results" class="chapter done " data-progress="9.1" style="left: 95.23809523809524%;"></a>
     
-        <a href="../hypergeom4/hypergeom4Faq.html" title="Command line FAQ" class="chapter  " data-progress="9.2" style="left: 100%;"></a>
+        <a href="../hypergeom4/hypergeom4Faq.html" title="Command line FAQ" class="chapter done " data-progress="9.2" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7">
+                    <section class="normal" id="section-gitbook_8">
                     
-                        <h1 id="background">Background</h1>
-<p>GenomeRunner uses <code>background</code>, or universe, of all genomic regions for random sampling. For SNPs, the background may consist of  all currently reported SNPs (useful for the analysis of SNP sets from Genome-Wide Association Studies), or contain a set of all SNPs on a microarray chip (e.g., ImmunoChip, MetaboChip). Think about the background as all SNPs tested in a GWA study, and the genomic features of interest (FOIs) as a subset of SNPs significantly associated with a disease/phenotype. </p>
-<p>To create the background set of SNPs, obtain genomic coordinates of all currently reported SNPs found in &gt;=1% of samples from the <a href="http://genome.ucsc.edu/cgi-bin/hgTables?command=start" target="_blank">UCSC table browser</a>. E.g., for <em>Homo Sapiens</em> they may be obtained by selecting <code>Mammals/Human/hg19/Variation/All SNPs(138)/snp138Common</code> in the appropriate drop-down menus, selecting &quot;BED - browser extensible data&quot; as the output format, specifying <code>snp138Common.bed</code> as the file name, and getting output as a 
-gzip compressed file. Place the <code>snp138Common.bed.gz</code> file into the <code>[dir]/custom_data/backgrounds/hg19/</code> folder. </p>
-<p>Other background files, such as (for <em>Homo Sapiens</em>) <code>snp138</code>, <code>snp138Flagged</code>, can also be downloaded and placed in the <code>[dir]/custom_data/backgrounds/hg19/</code> folder. To prioritize their order in the drop-down menu on the web page, each file name can be prefixed with a number that will be used to sort them, e.g., <code>1snp138Common.bed.gz</code>.</p>
-<p>As with the genome annotation data, we should ensure that no non-standard chromosome names are present in the background files, and the end coordinates are larger than the start coordinates. We also compress and index the background files. </p>
-<pre><code class="lang-r"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> find [dir]/custom_data/backgrounds/[org] -type f -name <span class="hljs-string">"*.bed.gz"</span>; do f=basename $file; d=dirname $file; echo $file; zcat $file | grep <span class="hljs-string">"\bchr[0-9XYM][^_]\b"</span> | awk <span class="hljs-string">'BEGIN {OFS="\t"} { if ( $3 &lt;= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }'</span> | sort -k1,<span class="hljs-number">1</span> -k2,2n -k3,3n | uniq &gt; $d/${f%???} &amp;&amp; rm $file; bgzip ${file%???} &amp;&amp; tabix $file; done
-</code></pre>
-<p>The resulting folder with background sets may look like:</p>
-<pre><code class="lang-r">/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/1snp138.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/1snp138.bed.gz.tbi
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/2snp138Common.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/2snp138Common.bed.gz.tbi
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/3snp138Flagged.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/3snp138Flagged.bed.gz
-</code></pre>
+                        <h1 id="command-line-module-faq">Command line module FAQ</h1>
+<ul>
+<li>The web interface allows filtering genomic features by score. How can I do that in command line?</li>
+</ul>
+<blockquote>
+<p>Note that filtered data are located in <code>grsnp_db_##</code> subfolders, where <em>##</em> is % threshold. Simply profide paths to these filtered datasets in the <code>gfs.txt</code> file.</p>
+</blockquote>
 
                     
                     </section>
@@ -423,10 +414,10 @@ gzip compressed file. Place the <code>snp138Common.bed.gz</code> file into the <
         </div>
 
         
-        <a href="../dbcreator/dbcreatorStructure.html" class="navigation navigation-prev " aria-label="Previous page: Database structure"><i class="fa fa-angle-left"></i></a>
+        <a href="../hypergeom4/results.html" class="navigation navigation-prev " aria-label="Previous page: Results"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dbcreator/dbcreatorCustom.html" class="navigation navigation-next " aria-label="Next page: Custom data"><i class="fa fa-angle-right"></i></a>
+        <a href="../references.html" class="navigation navigation-next " aria-label="Next page: References"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
