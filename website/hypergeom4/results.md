@@ -1,7 +1,7 @@
 
 
 
-News and updates
+Coming soon
 ========================================================
 
-Coming soon...
+Coming soon

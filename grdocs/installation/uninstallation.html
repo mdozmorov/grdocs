@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Background | GenomeRunner</title>
+        <title>Uninstalling | GenomeRunner</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../dbcreator/dbcreatorCustom.html" />
+        <link rel="next" href="../installation/modules.html" />
         
         
-        <link rel="prev" href="../dbcreator/dbcreatorStructure.html" />
+        <link rel="prev" href="../installation/installation.html" />
         
 
-        <meta property="og:title" content="Background | GenomeRunner">
+        <meta property="og:title" content="Uninstalling | GenomeRunner">
         <meta property="og:site_name" content="GenomeRunner">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.4" data-basepath=".." data-revision="1402282482484">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="5" data-basepath=".." data-revision="1402282482484">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/mdozmorov/grdocs/edit/master/dbcreator/dbcreatorBackground.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/mdozmorov/grdocs/edit/master/installation/uninstallation.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -343,7 +343,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 57.142857142857146%;min-width: 52.38095238095238%;"></div>
+        <div class="inner" style="width: 28.571428571428573%;min-width: 23.80952380952381%;"></div>
     </div>
     <div class="chapters">
     
@@ -361,17 +361,17 @@
     
         <a href="../installation/uninstallation.html" title="Uninstalling" class="chapter done new-chapter" data-progress="5" style="left: 28.571428571428573%;"></a>
     
-        <a href="../installation/modules.html" title="Modules" class="chapter done " data-progress="5.1" style="left: 33.333333333333336%;"></a>
+        <a href="../installation/modules.html" title="Modules" class="chapter  " data-progress="5.1" style="left: 33.333333333333336%;"></a>
     
-        <a href="../dbcreator/dbcreator.html" title="Dbcreator module" class="chapter done new-chapter" data-progress="6" style="left: 38.095238095238095%;"></a>
+        <a href="../dbcreator/dbcreator.html" title="Dbcreator module" class="chapter  new-chapter" data-progress="6" style="left: 38.095238095238095%;"></a>
     
-        <a href="../dbcreator/dbcreatorWorks.html" title="How dbcreator works" class="chapter done " data-progress="6.1" style="left: 42.857142857142854%;"></a>
+        <a href="../dbcreator/dbcreatorWorks.html" title="How dbcreator works" class="chapter  " data-progress="6.1" style="left: 42.857142857142854%;"></a>
     
-        <a href="../dbcreator/dbcreatorFiltering.html" title="Filtering" class="chapter done " data-progress="6.2" style="left: 47.61904761904762%;"></a>
+        <a href="../dbcreator/dbcreatorFiltering.html" title="Filtering" class="chapter  " data-progress="6.2" style="left: 47.61904761904762%;"></a>
     
-        <a href="../dbcreator/dbcreatorStructure.html" title="Database structure" class="chapter done " data-progress="6.3" style="left: 52.38095238095238%;"></a>
+        <a href="../dbcreator/dbcreatorStructure.html" title="Database structure" class="chapter  " data-progress="6.3" style="left: 52.38095238095238%;"></a>
     
-        <a href="../dbcreator/dbcreatorBackground.html" title="Background" class="chapter done " data-progress="6.4" style="left: 57.142857142857146%;"></a>
+        <a href="../dbcreator/dbcreatorBackground.html" title="Background" class="chapter  " data-progress="6.4" style="left: 57.142857142857146%;"></a>
     
         <a href="../dbcreator/dbcreatorCustom.html" title="Custom data" class="chapter  " data-progress="6.5" style="left: 61.904761904761905%;"></a>
     
@@ -396,24 +396,15 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7">
+                    <section class="normal" id="section-gitbook_22">
                     
-                        <h1 id="background">Background</h1>
-<p>GenomeRunner uses <code>background</code>, or universe, of all genomic regions for random sampling. For SNPs, the background may consist of  all currently reported SNPs (useful for the analysis of SNP sets from Genome-Wide Association Studies), or contain a set of all SNPs on a microarray chip (e.g., ImmunoChip, MetaboChip). Think about the background as all SNPs tested in a GWA study, and the genomic features of interest (FOIs) as a subset of SNPs significantly associated with a disease/phenotype. </p>
-<p>To create the background set of SNPs, obtain genomic coordinates of all currently reported SNPs found in &gt;=1% of samples from the <a href="http://genome.ucsc.edu/cgi-bin/hgTables?command=start" target="_blank">UCSC table browser</a>. E.g., for <em>Homo Sapiens</em> they may be obtained by selecting <code>Mammals/Human/hg19/Variation/All SNPs(138)/snp138Common</code> in the appropriate drop-down menus, selecting &quot;BED - browser extensible data&quot; as the output format, specifying <code>snp138Common.bed</code> as the file name, and getting output as a 
-gzip compressed file. Place the <code>snp138Common.bed.gz</code> file into the <code>[dir]/custom_data/backgrounds/hg19/</code> folder. </p>
-<p>Other background files, such as (for <em>Homo Sapiens</em>) <code>snp138</code>, <code>snp138Flagged</code>, can also be downloaded and placed in the <code>[dir]/custom_data/backgrounds/hg19/</code> folder. To prioritize their order in the drop-down menu on the web page, each file name can be prefixed with a number that will be used to sort them, e.g., <code>1snp138Common.bed.gz</code>.</p>
-<p>As with the genome annotation data, we should ensure that no non-standard chromosome names are present in the background files, and the end coordinates are larger than the start coordinates. We also compress and index the background files. </p>
-<pre><code class="lang-r"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> find [dir]/custom_data/backgrounds/[org] -type f -name <span class="hljs-string">"*.bed.gz"</span>; do f=basename $file; d=dirname $file; echo $file; zcat $file | grep <span class="hljs-string">"\bchr[0-9XYM][^_]\b"</span> | awk <span class="hljs-string">'BEGIN {OFS="\t"} { if ( $3 &lt;= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $0 } }'</span> | sort -k1,<span class="hljs-number">1</span> -k2,2n -k3,3n | uniq &gt; $d/${f%???} &amp;&amp; rm $file; bgzip ${file%???} &amp;&amp; tabix $file; done
+                        <h1 id="uninstalling-genomerunner">Uninstalling GenomeRunner</h1>
+<p>To remove GenomeRunner from your computer, run</p>
+<pre><code class="lang-r">sudo python setup.py install --record files.txt
+cat files.txt | xargs -i sudo rm -rf {}
 </code></pre>
-<p>The resulting folder with background sets may look like:</p>
-<pre><code class="lang-r">/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/1snp138.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/1snp138.bed.gz.tbi
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/2snp138Common.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/2snp138Common.bed.gz.tbi
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/3snp138Flagged.bed.gz
-/home/testuser/Documents/db_1.01_05.12.2014/custom_data/backgrounds/hg19/3snp138Flagged.bed.gz
-</code></pre>
+<p>The first command will collect full paths to the GenomeRunner&#39;s files. The second command will remove them. </p>
+<p>Do not forget to remove the main <code>genome_runner</code> folder and any database folders you may have created.</p>
 
                     
                     </section>
@@ -423,10 +414,10 @@ gzip compressed file. Place the <code>snp138Common.bed.gz</code> file into the <
         </div>
 
         
-        <a href="../dbcreator/dbcreatorStructure.html" class="navigation navigation-prev " aria-label="Previous page: Database structure"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dbcreator/dbcreatorCustom.html" class="navigation navigation-next " aria-label="Next page: Custom data"><i class="fa fa-angle-right"></i></a>
+        <a href="../installation/modules.html" class="navigation navigation-next " aria-label="Next page: Modules"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

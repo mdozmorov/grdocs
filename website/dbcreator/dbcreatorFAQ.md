@@ -29,3 +29,5 @@ dbcreator FAQ
 rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
 ```
 
+
+> Remember that rsync is not infallible. To automatically restart broken transfers, check [source code](https://github.com/mdozmorov/genome_runner/tree/master/commandline) for `autorsync.sh` script in the `commandline` folder.

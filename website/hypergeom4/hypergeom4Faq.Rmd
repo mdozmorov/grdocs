@@ -5,7 +5,9 @@ opts_chunk$set(cache.path='cache/', fig.path='figures/', cache=FALSE, tidy=TRUE,
 # See yihui.name/knitr/options for more Knitr options.
 ```
 
-Coming soon
+Command line module FAQ
 ========================================================
 
-Coming soon
+* The web interface allows filtering genomic features by score. How can I do that in command line?
+
+> Note that filtered data are located in `grsnp_db_##` subfolders, where *##* is % threshold. Simply profide paths to these filtered datasets in the `gfs.txt` file.

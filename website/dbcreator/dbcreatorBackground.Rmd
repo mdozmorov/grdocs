@@ -8,7 +8,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 Background
 ==========================================
 
-GenomeRunner uses a `background`, or universe, of all genomic regions for random sampling. For SNPs, the background may consist of  all currently reported SNPs (useful for the analysis of SNP sets from Genome-Wide Association Studies), or contain a set of all SNPs on a microarray chip (e.g., ImmunoChip, MetaboChip). Think about the background as all SNPs tested in a GWAS study, and the genomic features of interest (FOIs) as a subset of SNPs significantly associated with a disease/phenotype. 
+GenomeRunner uses `background`, or universe, of all genomic regions for random sampling. For SNPs, the background may consist of  all currently reported SNPs (useful for the analysis of SNP sets from Genome-Wide Association Studies), or contain a set of all SNPs on a microarray chip (e.g., ImmunoChip, MetaboChip). Think about the background as all SNPs tested in a GWA study, and the genomic features of interest (FOIs) as a subset of SNPs significantly associated with a disease/phenotype. 
 
 To create the background set of SNPs, obtain genomic coordinates of all currently reported SNPs found in >=1% of samples from the [UCSC table browser](http://genome.ucsc.edu/cgi-bin/hgTables?command=start). E.g., for *Homo Sapiens* they may be obtained by selecting `Mammals/Human/hg19/Variation/All SNPs(138)/snp138Common` in the appropriate drop-down menus, selecting "BED - browser extensible data" as the output format, specifying `snp138Common.bed` as the file name, and getting output as a 
 gzip compressed file. Place the `snp138Common.bed.gz` file into the `[dir]/custom_data/backgrounds/hg19/` folder. 
