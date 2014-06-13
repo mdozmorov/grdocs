@@ -41,3 +41,26 @@ An example of the `gfs` folder may look like:
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/gwasCatalog/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/chromStates/*.bed
 ```
+
+
+Random sets of FOIs
+--------------------
+
+Any scientific experiment testing for presence of an effect should include a positive control, that is, a condition known to lack an effect. In case of GenomeRunner, we should use randomly selected SNP set of the same size as the FOIs themselves. That is, we are testing:
+
+1) A set of FOIs, e.g., 100 disease-associated SNPs - we expect to find biologically relevant enrichments
+2) A random set, e.g., 100 randomly selected SNPs - we expect them to show no significant enrichments
+
+Random sets of SNPs should be generated from the background:
+
+```{r}
+zcat [dir]/custom_data/backgrounds/[org]/3gwasCatalog.bed.gz | shuf | head -n 100 > rndgwascatalog_100.bed
+```
+
+To generate multiple random sets of SNPs of different sizes, use:
+
+```{r}
+for i in {7..13}; do c=$(awk "BEGIN{print 2 ** $i}"); zcat 3gwasCatalog.bed.gz | shuf | head -n $c > rndgwasCatalog_$c.bed; done
+```
+
+It will generate 7 sets of randomly selected SNPs of the sizes of power of 2 (128 SNPs, 256, etc.).
