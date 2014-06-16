@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Uninstalling | GenomeRunner</title>
+        <title>dbcreator_encodeDCC | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.2">
@@ -19,10 +19,10 @@
     <meta name="author" content="mdozmorov">
     
     
-    <link rel="next" href="../installation/modules.html" />
+    <link rel="next" href="../dbcreator/dbcreatorWorks.html" />
     
     
-    <link rel="prev" href="../installation/installation.html" />
+    <link rel="prev" href="../dbcreator/dbcreator_ucsc.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="3.2" data-basepath=".." data-revision="1402887535746">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="4.1.2" data-basepath=".." data-revision="1402887535746">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -118,7 +118,7 @@
         
         
         <li>
-            <a href="https://github.com/mdozmorov/grdocs/edit/master/installation/uninstallation.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/mdozmorov/grdocs/edit/master/dbcreator/dbcreator_encodeDCC.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -423,7 +423,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 19.23076923076923%;min-width: 15.384615384615385%;"></div>
+        <div class="inner" style="width: 34.61538461538461%;min-width: 30.76923076923077%;"></div>
     </div>
     <div class="chapters">
     
@@ -439,13 +439,13 @@
     
         <a href="../installation/uninstallation.html" title="Uninstalling" class="chapter done " data-progress="3.2" style="left: 19.23076923076923%;"></a>
     
-        <a href="../installation/modules.html" title="Modules" class="chapter  new-chapter" data-progress="4" style="left: 23.076923076923077%;"></a>
+        <a href="../installation/modules.html" title="Modules" class="chapter done new-chapter" data-progress="4" style="left: 23.076923076923077%;"></a>
     
-        <a href="../dbcreator/dbcreator.html" title="Dbcreator module" class="chapter  " data-progress="4.1" style="left: 26.923076923076923%;"></a>
+        <a href="../dbcreator/dbcreator.html" title="Dbcreator module" class="chapter done " data-progress="4.1" style="left: 26.923076923076923%;"></a>
     
-        <a href="../dbcreator/dbcreator_ucsc.html" title="dbcreator_ucsc" class="chapter  " data-progress="4.1.1" style="left: 30.76923076923077%;"></a>
+        <a href="../dbcreator/dbcreator_ucsc.html" title="dbcreator_ucsc" class="chapter done " data-progress="4.1.1" style="left: 30.76923076923077%;"></a>
     
-        <a href="../dbcreator/dbcreator_encodeDCC.html" title="dbcreator_encodeDCC" class="chapter  " data-progress="4.1.2" style="left: 34.61538461538461%;"></a>
+        <a href="../dbcreator/dbcreator_encodeDCC.html" title="dbcreator_encodeDCC" class="chapter done " data-progress="4.1.2" style="left: 34.61538461538461%;"></a>
     
         <a href="../dbcreator/dbcreatorWorks.html" title="How dbcreator works" class="chapter  " data-progress="4.1.3" style="left: 38.46153846153846%;"></a>
     
@@ -486,15 +486,12 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_8">
                     
-                        <h1 id="uninstalling-genomerunner">Uninstalling GenomeRunner</h1>
-<p>To remove GenomeRunner from your computer, run</p>
-<pre><code class="lang-r">sudo python setup.py install --record files.txt
-sudo rm -rf `cat files.txt`
-</code></pre>
-<p>The first command will collect full paths to GenomeRunner&#39;s files. The second command will remove them. </p>
-<p>Do not forget to remove the main <code>genome_runner</code> folder and any database folders you may have created.</p>
+                        <h1 id="running-dbcreator_encodedcc-module">Running dbcreator_encodeDCC module</h1>
+<p>This module is used very similar to the <a href="dbcreator_ucsc.html">dbcreator_ucsc module</a>. Two arguments are different:</p>
+<p>The <strong>--featuregroups</strong> argument specifies the group name to process, taked from <a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/" target="_blank">the ENCODE DCC database</a>. Useful when specific groups are of interest. Example: wgEncodeAwgTfbsUniform</p>
+<p>The <strong>--max</strong>, or <strong>-m</strong> argument limits the number of genomic features <em>in each group</em> to be processed. Useful when testing module&#39; functionality.</p>
 
                     
                     </section>
@@ -504,10 +501,10 @@ sudo rm -rf `cat files.txt`
         </div>
 
         
-        <a href="../installation/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreator_ucsc.html" class="navigation navigation-prev " aria-label="Previous page: dbcreator_ucsc"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../installation/modules.html" class="navigation navigation-next " aria-label="Next page: Modules"><i class="fa fa-angle-right"></i></a>
+        <a href="../dbcreator/dbcreatorWorks.html" class="navigation navigation-next " aria-label="Next page: How dbcreator works"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
