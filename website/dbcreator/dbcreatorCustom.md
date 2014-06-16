@@ -1,6 +1,5 @@
 
 
-
 Custom data
 ============
 
@@ -19,7 +18,6 @@ An example of the `fois` folder may look like:
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/fois/hg19/GWAScatalogFull/*.bed
 ```
 
-
 Custom genomic features (GFs)
 -----------------------
 
@@ -32,7 +30,6 @@ It is a good idea to remove special characters from file names, if any, by runni
 for FILE in *.bed; do mv -v "$FILE" echo $FILE | tr ' ' '_' | tr -d '[{}(),!]' | tr -d "'" | tr '[A-Z]' '[a-z]' | sed 's/_-_/_/g';done
 ```
 
-
 An example of the `gfs` folder may look like:
 
 
@@ -42,4 +39,3 @@ An example of the `gfs` folder may look like:
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/gwasCatalog/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/chromStates/*.bed
 ```
-

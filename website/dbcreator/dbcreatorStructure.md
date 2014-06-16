@@ -1,14 +1,14 @@
 
 
-
 Database structure
 ========================================================
 
 Although the database structure may look daunting at first, it follows logical organization of the subfolders, detailed in the following sections.
 
 The database contains several folder groups:
-- `downloads` - the [organism] subfolders here store organism-specific raw genome annotation data. Populated by the `dbcreator` module, or by manually mirroring the [USCS database](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/) (see [dbcreator FAQ](dbcreatorFAQ.md));
-- `grsnp_db` - the [organism] subfolders here contain organism-specific processed genome annotation data, organized into subfolders according to the UCSC schema. `grsnp_db_##` subfolders contain genome annotation data filtered by ## score threshold, detailed in the [Filtering](dbcreatorFiltering.md) section;
+- `downloads` - the [organism] subfolders here store organism-specific raw genome annotation data. Populated by the `dbcreator*` modules, or by manually [mirroring the databases](dbcreatorFAQ.md);
+- `grsnp_db` - the [organism] subfolders here contain organism-specific processed genome annotation data, organized into subfolders according to the UCSC schema. The ENCODE data (track names beginning with *wgEncode*) are placed in separate ENCODE subfolders strictured according to the `[dir]/grsnp_db/[organism]/ENCODE/[data source/type]/[Tier]/[cell type]` schema.
+- `grsnp_db_##_plus/minus` subfolders contain genome annotation data filtered by ## percent score and/or strand thresholds, detailed in the [Filtering](dbcreatorFiltering.md) section;
 - `custom_data` - contains `backgrounds`, `fois` and `gfs` subfolders, each contains organism-specific pre-defined sets of data (see [Custom data](dbcreatorCustom.md) section);
 - `results` and `uploads` are special folders containing run-specific files.
 
@@ -67,4 +67,3 @@ An example of complete database structure may look like:
 │   
 └── uploads
 ```
-
