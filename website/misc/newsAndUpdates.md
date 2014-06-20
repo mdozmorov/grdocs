@@ -1,12 +1,11 @@
 
 
-
 News and updates
 ========================================================
 
 06/10/2014: Stay tuned, major upgrades are coming. Among currently developed and tested improvements are:
 - Database versioning support
-- Data filtering by score
+- Data filtering by score and strand
 - P-value correction for multiple testing
 - Numerous code refactoring and stability improvements
 - Virtual Machine image with working GenomeRunner installation

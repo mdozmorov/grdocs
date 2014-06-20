@@ -1,6 +1,5 @@
 
 
-
 Installing GenomeRunner
 ========================================================
 
@@ -11,9 +10,8 @@ To install GenomeRunner locally, clone GenomeRunner's repository locally (`git` 
 
 ```r
 git clone https://github.com/mdozmorov/genome_runner.git
-./setup.sh
+sudo ./setup.sh
 ```
-
 
 GenomeRunner can be installed as developmental version by chenging the last line of the `setup.sh` file to
 
@@ -21,5 +19,4 @@ GenomeRunner can be installed as developmental version by chenging the last line
 ```r
 sudo python setup.py install develop -d /usr/local/lib/python2.7/dist-packages/
 ```
-
 

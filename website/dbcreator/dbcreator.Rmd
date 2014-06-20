@@ -5,21 +5,15 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 # See yihui.name/knitr/options for more Knitr options.
 ```
 
-dbcreator, a module for creating organism-specific databases of genome annotation elements
+dbcreator_ucsc and dbcreator_encodeDCC, modules for creating organism-specific genome annotation databases
 ========================================================
 
-Making the database should be the first step before running GenomeRunner server.
+Making database(s) should be the first step before running GenomeRunner server. More genome annotation data is better as it allows to get potentially deeper insight into the results obtained with GenomeRunner.
 
-Create and go to the folder named, e.g., **db_1.01_05.12.2014**. The database name consists of the **db** prefix, the **1.01** database version, and the **05.12.2014** date when the database was created. Note that throughout this guide `[dir]` represents the **full path** to the database (i.e `[dir] = /home/testuser/Documents/db_1.01_05.12.2014`). Do not use `~` shortcuts.
+GenomeRunner started off with the advent of [the UCSC genome annotation database](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/). This database remains the main source of well organized and validated data. Other data sources, such as pilot data from [the ENCODE Data Coordination Center](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/), or from [Cistrome database](http://cistrome.dfci.harvard.edu/NR_Cistrome/index.html) are in process of being incorporated into GenomeRunner's framework.
 
-```{r}
-mkdir [dir]
-cd [dir]  # Recommended: the `dbcreator` module should be executed within the [dir] folder
-python -m grsnp.dbcreator -g hg19 -d [dir]
-```
+Currently, GenomeRunner has two submodules for processing genome annotation data:
+- `dbcreator_ucsc` - processes [the UCSC genome annotation database](hgdownload.cse.ucsc.edu/goldenPath/hg19/database/)
+- `dbcreator_encodeDCC` - ptocesses the data from [the ENCODE Data Coordination Center](hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/)
 
-The **-d** parameter designates where the database is to be installed. Required.
-
-The **-g** parameter indicates organism and genome assembly version. Organism-specific genome annotation data are placed in the appropriate subfolders, and automatically processed by the `server` module. Examples of organism codes: hg19, mm9, rn4, danRer7, dm3, ce6, sacCer3. Required.
-
-As more genome annotation data become available, one may want to update the database. Simply re-run the `dbcreator` module specifying the new database `[dir]` name according to the above conventions. Multiple database names can be supplied to the `server` module, allowing a user to select the database version.
+The main goal of both submodules is to convert different data formats into standard .BED files and sort them into categories. As they are processing different data and data categorization schemes, it is recommended to avoid mixing their output by using different  `[dir]` folders.
