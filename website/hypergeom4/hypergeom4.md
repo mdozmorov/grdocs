@@ -31,8 +31,8 @@ python -m grsnp.hypergeom4 fois.txt gfs.txt /home/testuser/db_4.10_05.12.2014/cu
 
 Use the following arguments to tweak the analysis:
 - **--output_dir**, or **-d** - path to folder where the results will be outputted. Default: current folder
-- **--pv_adjust**, or ""-v** - method for p-value adjustment. Default: None. Possible values: bonferroni, holm, hochberg, hommel, BH, BY, fdr, None.
-- **--run_annotation**, or **-a** - for each set of SNPs, annotates each SNP for co-localization with genomic features from the `gfs.txt` file.
+- **--pv_adjust**, or **-v** - method for p-value adjustment. Default: None. Possible values (case sensitive): bonferroni, holm, hochberg, hommel, BH, BY, fdr, None.
+- **--run_annotation**, or **-a** - for each set of SNPs, annotates each SNP by the number of their co-localization with genomic features from the `gfs.txt` file.
 
 Use the aforementioned arguments as follows:
 ```

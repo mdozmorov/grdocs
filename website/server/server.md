@@ -11,8 +11,7 @@ As more genome annotation data become available, it's a good idea to use the lat
 
 We start the web interface as:
 
-
-```r
+```
 python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1]
 ```
 

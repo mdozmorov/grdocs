@@ -7,16 +7,14 @@ GenomeRunner depends on many modules and packages. Install them using the `setup
 
 To install GenomeRunner locally, clone GenomeRunner's repository locally (`git` must be installed, `sudo apt-get install git`), and run `setup.sh`.
 
-
-```r
+```
 git clone https://github.com/mdozmorov/genome_runner.git
 sudo ./setup.sh
 ```
 
 GenomeRunner can be installed as developmental version by chenging the last line of the `setup.sh` file to
 
-
-```r
+```
 sudo python setup.py install develop -d /usr/local/lib/python2.7/dist-packages/
 ```
 

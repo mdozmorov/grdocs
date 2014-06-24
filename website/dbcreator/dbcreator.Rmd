@@ -8,7 +8,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 dbcreator_ucsc and dbcreator_encodeDCC, modules for creating organism-specific genome annotation databases
 ========================================================
 
-Making database(s) should be the first step before running GenomeRunner server. More genome annotation data is better as it allows to get potentially deeper insight into the results obtained with GenomeRunner.
+Making database(s) should be the first step before running GenomeRunner server.
 
 GenomeRunner started off with the advent of [the UCSC genome annotation database](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/). This database remains the main source of well organized and validated data. Other data sources, such as pilot data from [the ENCODE Data Coordination Center](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/), or from [Cistrome database](http://cistrome.dfci.harvard.edu/NR_Cistrome/index.html) are in process of being incorporated into GenomeRunner's framework.
 

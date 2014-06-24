@@ -15,7 +15,7 @@ Yes, you can. GenomeRunner employs [Celery distributed task queue](https://githu
 ### * Wow! Can I "see" what my workers are doing?
 
 You sure can. Run the following command and visit Celery on [http://localhost:5555](http://localhost:5555)
-```{r}
+```
 celery flower --broker=redis://localhost:7775/
 ```
 

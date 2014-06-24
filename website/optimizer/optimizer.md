@@ -9,7 +9,6 @@ These pre-calculated statistics are stored in the `[dir]/grsnp_db/[organism]/bkg
 
 We run the `optimizer` module as:
 
-
-```r
+```
 python -m grsnp.optimizer -g hg19 -d [dir]
 ```

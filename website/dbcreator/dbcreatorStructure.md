@@ -14,8 +14,7 @@ The database contains several folder groups:
 
 An example of complete database structure may look like:
 
-
-```r
+```
 .
 ├── custom_data
 │   ├── backgrounds
@@ -60,6 +59,8 @@ An example of complete database structure may look like:
 │       └── varRep
 │   
 ├── grsnp_db_25
+├── grsnp_db_25_minus
+├── grsnp_db_25_plus
 │   
 ├── grsnp_db_50
 │   

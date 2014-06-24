@@ -5,8 +5,7 @@ Uninstalling GenomeRunner
 
 To remove GenomeRunner from your computer, run
 
-
-```r
+```
 sudo python setup.py install --record files.txt
 sudo rm -rf `cat files.txt`
 ```
