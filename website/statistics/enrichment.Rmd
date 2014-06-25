@@ -5,10 +5,7 @@ opts_chunk$set(cache.path='cache/', fig.path='figures/', cache=FALSE, tidy=TRUE,
 # See yihui.name/knitr/options for more Knitr options.
 ```
 
-Enrichment analysis results
+Coming soon
 ========================================================
 
-The results of enrichment analysis are stored in tab-separated `matrix.txt` text file. This is *NxM* matrix, where *N* (rows) is the number of genomic features, and *M* (columns) is the number of features of interest. If one set of SNPs was analyzed, the matrix will contain 1 column.
-
-Each cell of the matrix represent a multiple testing corrected (if selected) p-value for a given set of SNPs vs. genomic feature analysis. If an *underrepresented* enrichment is detected, the p-value is pre-fixed with "-" sign. Before visualization, the matrix is filtered to remove rows (genome annotation features) showing no statistically significant enrichments (at least a single condition with p-value < 0.01). The filtered matrix is then [-log10-transformed](../misc/Faq.md), clustered using “Euclidean” distance to measure dissimilarity between rows and columns, and the “complete” agglomeration method, saved into `clustered.txt` file and visualized as an interactive heatmap.
-
+Coming soon

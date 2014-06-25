@@ -1,18 +1,22 @@
 CACHE MANIFEST
-# Revision 1403645665369
+# Revision 1403734580639
 
 CACHE:
 dbcreator/dbcreator.html
-dbcreator/dbcreatorBackground.html
 dbcreator/dbcreatorCustom.html
 dbcreator/dbcreatorFAQ.html
 dbcreator/dbcreatorFiltering.html
 dbcreator/dbcreatorStructure.html
 dbcreator/dbcreatorWorks.html
-dbcreator/dbcreator_encodeDCC.html
 dbcreator/dbcreator_ucsc.html
+dbcreator/dbcreator_encodeDCC.html
+dbcreator/dbcreatorBackground.html
+hypergeom4/annotation.html
+hypergeom4/enrichment.html
+hypergeom4/episimilarity.html
 hypergeom4/hypergeom4.html
 hypergeom4/hypergeom4Faq.html
+hypergeom4/logs.html
 hypergeom4/results.html
 installation/installation.html
 installation/modules.html
@@ -24,7 +28,6 @@ references.html
 server/server.html
 server/serverFAQ.html
 statistics/enrichment.html
-statistics/similarity.html
 statistics/statistics.html
 misc/Faq.html
 misc/definitions.html

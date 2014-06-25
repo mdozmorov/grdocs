@@ -23,7 +23,7 @@
     * [Command line FAQ](hypergeom4/hypergeom4Faq.md)
 * [Results](hypergeom4/results.md)
   * [Enrichment results](hypergeom4/enrichment.md)
-  * [Epigenomic similarity results](hypergeom4/episimilirity.md)
+  * [Epigenomic similarity results](hypergeom4/episimilarity.md)
   * [Annotation results](hypergeom4/annotation.md)
   * [Logs and debug info](hypergeom4/logs.md)
 * [Statistics](statistics/statistics.md)
