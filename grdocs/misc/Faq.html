@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="1" data-basepath=".." data-revision="1403734580636">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="1" data-basepath=".." data-revision="1403820630556">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -757,7 +757,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_27">
                     
                         <h1 id="faq">FAQ</h1>
 <h3 id="-how-genomerunner-can-help-me-">* How GenomeRunner can help me?</h3>
@@ -839,43 +839,52 @@
 </thead>
 <tbody>
 <tr>
-<td>coriellVariants (Coriell Cell Line Copy Number Variants, split by cell types)</td>
-<td>... enriched in CNVs, and in which cell type?</td>
-</tr>
-<tr>
-<td>dgvVariants (Database of Genomic Variants: Structural Variation (CNV, Inversion, In/del), split by variant type)</td>
-<td>... enriched in CNVs, or other types of structural variations?</td>
-</tr>
-<tr>
-<td>repeats (Repeating Elements by RepeatMasker, split by repeat class)</td>
-<td>... enriched in regions of low complexity, and in which type?</td>
-</tr>
-<tr>
-<td>gwasCatalog (NHGRI Catalog of Published Genome-Wide Association Studies, split by disease/trait types)</td>
-<td>... enriched in known disease-specific SNPs?</td>
-</tr>
-<tr>
-<td>altSplicing (Alternative Splicing, Alternative Promoter and Similar Events in UCSC Genes, split by splicing type)</td>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=knownAlt&amp;hgTracksConfigPage=configure" target="_blank">altSplicing</a> (Alternative Splicing, Alternative Promoter and Similar Events in UCSC Genes, split by splicing type)</td>
 <td>... potentially disrupt a specific type of alternative spliced regions?</td>
 </tr>
 <tr>
-<td>ncRNAs (C/D and H/ACA Box snoRNAs, scaRNAs, and microRNAs from snoRNABase and miRBase, split by ncRNA type)</td>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=wgEncodeBroadHmm&amp;hgTracksConfigPage=configure" target="_blank">chromStates</a> (Chromatin State Segmentation by HMM from ENCODE/Broad, Gm12878 cell line, split by chromatin state type)</td>
+<td>... preferentially located in certain chromatin states?</td>
+</tr>
+<tr>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=coriellDelDup&amp;hgTracksConfigPage=configure" target="_blank">coriellVariants</a> (Coriell Cell Line Copy Number Variants, split by cell types)</td>
+<td>... enriched in CNVs, and in which cell type?</td>
+</tr>
+<tr>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=gap&amp;hgTracksConfigPage=configure" target="_blank">gapLocations</a> (Gap locations)</td>
+<td>... happen to be in gaps, telomeres, heterochromatin regions?</td>
+</tr>
+<tr>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=dgvPlus&amp;hgTracksConfigPage=configure" target="_blank">genomicVariants</a> (Database of Genomic Variants: Structural Variation (CNV, Inversion, In/del), split by variant type)</td>
+<td>... enriched in CNVs, or other types of structural variations?</td>
+</tr>
+<tr>
+<td><a href="http://www.ncbi.nlm.nih.gov/pubmed/23263488" target="_blank">H3K4me3</a> (Tissue-specific histone 3 lysine 4 trimethylation marks)</td>
+<td>... enriched in tissue-specific active transcription-associated histone mark?</td>
+</tr>
+<tr>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=wgEncodeBroadHistone&amp;hgTracksConfigPage=configure" target="_blank">histoneMarks</a> (Histone modifications by ChIP-seq from ENCODE/Broad institute, Gm12878 cell line</td>
+<td>... enriched in B-lymphoblastoma-associated histome modification marks?</td>
+</tr>
+<tr>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=wgRna&amp;hgTracksConfigPage=configure" target="_blank">ncRNAs</a> (C/D and H/ACA Box snoRNAs, scaRNAs, and microRNAs from snoRNABase and miRBase, split by ncRNA type)</td>
 <td>... associated with a class of non-coding elements?</td>
 </tr>
 <tr>
-<td>tfbsEncode (Transcription Factor ChIP-seq Clusters V3 (161 targets, 189 antibodies) from ENCODE, split by TFBS name)</td>
-<td>... potentially disrupt a specific experimentally defined transcription factor binding site?</td>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=rmsk&amp;hgTracksConfigPage=configure" target="_blank">repeats</a> (Repeating Elements by RepeatMasker, split by repeat class)</td>
+<td>... enriched in regions of low complexity, and in which type?</td>
 </tr>
 <tr>
-<td>tfbsConserved (HMR Conserved Transcription Factor Binding Sites, split by TFBS name)</td>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=tfbsConsSites&amp;hgTracksConfigPage=configure" target="_blank">tfbsConserved</a> (HMR Conserved Transcription Factor Binding Sites, split by TFBS name)</td>
 <td>... potentially disrupt a specific computationally predicted transcription factor binding site?</td>
 </tr>
 <tr>
-<td>chromStates (Chromatin State Segmentation by HMM from ENCODE/Broad, Gm12878 cell line, split by chromatin state type)</td>
-<td>... preferentially located in certain chromatin states?</td>
+<td><a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=wgEncodeRegTfbsClusteredV2&amp;hgTracksConfigPage=configure" target="_blank">tfbsEncode</a> (Transcription Factor ChIP-seq Clusters V3 (161 targets, 189 antibodies) from ENCODE, split by TFBS name)</td>
+<td>... potentially disrupt a specific experimentally defined transcription factor binding site?</td>
 </tr>
 </tbody>
 </table>
+<h1 id="-gwascatalog-https-genome-ucsc-edu-cgi-bin-hgtrackui-hgsid-381293375_xxuzkzx80qrjd5k5yolpcksohtwk-g-gwascatalog-hgtracksconfigpage-configure-nhgri-catalog-of-published-genome-wide-association-studies-split-by-disease-trait-types-enriched-in-known-disease-specific-snps-">| <a href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=381293375_xxuzKzx80QrJD5K5yoLpCkSoHtwk&amp;g=gwasCatalog&amp;hgTracksConfigPage=configure" target="_blank">gwasCatalog</a> (NHGRI Catalog of Published Genome-Wide Association Studies, split by disease/trait types)                | ... enriched in known disease-specific SNPs?                                                    |</h1>
 <p>  Examples of what to choose:</p>
 <ul>
 <li>Select “tfbsEncode” category to get an answer whether the SNPs of interest are enriched in any of the 161 transcription factor binding sites identified by ChIP-seq.</li>
