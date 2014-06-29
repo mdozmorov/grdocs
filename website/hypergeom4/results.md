@@ -3,6 +3,6 @@
 Results
 ========================================================
 
-The web interface visualizes enrichment/epigenomic similarity/annotation results as interactive heatmaps/tables. All these results can be downloaded.
+The web interface visualizes [enrichment](enrichment.md)/[epigenomic similarity](episimilarity.md)/annotation results as interactive heatmaps/tables.
 
-To facilitate inclusion of GenomeRunner's results into bioinformatics pipelines, all results can be downloaded from the web interface or generated using the [`command line module`](hypergeom4.md).
+To facilitate inclusion of GenomeRunner's results into bioinformatics pipelines, all results can be downloaded from the web interface or generated using the [command line](hypergeom4.md) module.

@@ -14,4 +14,4 @@ The interplay among the modules is shown on the figure
 
 ![GenomeRunner structure](../figures/GRstructure.png)
 
-Before running GenomeRunner, the first step is to create a database of genomic annotations using  [`dbcreator` module](../dbcreator/dbcreator.md). Optionally, optimize the datavase using [`optimizer` module](../optimizer/optimizer.md). Then, run GenomeRunner web server using [`server`](../server/server.md) module. To run GenomeRunner from command line, use [`hypergeom4`](../hypergeom4/hypergeom4.md) module.
+Before running GenomeRunner, the first step is to create a database of genomic annotations using the  [dbcreator](../dbcreator/dbcreator.md) module. Optionally, optimize the database using the [optimizer](../optimizer/optimizer.md) module. Then, run GenomeRunner web server using the [server](../server/server.md) module. To run GenomeRunner from command line, use the [`hypergeom4`](../hypergeom4/hypergeom4.md) module.

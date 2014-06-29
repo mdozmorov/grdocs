@@ -12,6 +12,7 @@ News and updates
 - Database versioning support
 - Data filtering by score and strand
 - P-value correction for multiple testing
+- Annotation analysis
 - Numerous code refactoring and stability improvements
 - Virtual Machine image with working GenomeRunner installation
 

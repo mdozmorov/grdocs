@@ -13,16 +13,16 @@ python -m grsnp.dbcreator_ucsc -g hg19 -d [dir]
 
 Executing `dbcreator_ucsc` module without any arguments, or with **-h** argument will show short help text
 ```
-usage: python -m grsnp.dbcreator [-h] --data_dir [DATA_DIR]
-                                 [--organism [ORGANISM]]
-                                 [--featurenames [FEATURENAMES]] [--max [MAX]]
-                                 [--galaxy] [--score [SCORE]] [--scoreonly]
+usage: python -m grsnp.dbcreator_ucsc [-h] --data_dir [DATA_DIR]
+                                      [--organism [ORGANISM]]
+                                      [--featurenames [FEATURENAMES]] [--max [MAX]]
+                                      [--galaxy] [--score [SCORE]] [--scoreonly]
 ```
 #### Required arguments
 
 The **--data_dir**, or **-d** argument designates full path to the `[dir]` where the database is to be installed.
 
-The **--organism**, or **-g** argument specifies organism and genome assembly version. Organism-specific genome annotation data are placed in the appropriate subfolders and automatically processed by the `server` module. Examples of organism codes: hg19, mm9, rn4, danRer7, dm3, ce6, sacCer3.
+The **--organism**, or **-g** argument specifies organism code and genome assembly version. Organism-specific genome annotation data are placed in the appropriate subfolders and automatically processed by the `server` module. Examples of organism codes: hg19, mm9, rn4, danRer7, dm3, ce6, sacCer3.
 
 #### Advanced (optional) arguments
 

@@ -26,7 +26,8 @@
   * [Epigenomic similarity results](hypergeom4/episimilarity.md)
   * [Annotation results](hypergeom4/annotation.md)
   * [Logs and debug info](hypergeom4/logs.md)
-* [Statistics](statistics/statistics.md)
-  * [Enrichment analysis](statistics/enrichment.md)
-  * [Epigenomic similarity](statistics/similarity.md)
+  * [Results FAQ](hypergeom4/resultsFaq.md)
 * [References](references.md)
+
+Help improving this documentation!
+E-mail your suggestions/corrections at email

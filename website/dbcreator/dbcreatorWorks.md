@@ -7,7 +7,7 @@ The `dbcreator*` modules perform several steps:
 
 * Download raw data files and place them in the `[dir]/downloads/` folder. Note that this step may take several days on a slow network connection. If the download process fails, simply re-run the `dbcreator*` modules - this will resume the process. A more efficient way is to mirror the databases using rsync (see the [dbcreator FAQ](dbcreatorFAQ.md)).
 
-* Convert the files into [BED format](http://genome.ucsc.edu/FAQ/FAQformat.html#format1), [organize](dbcreatorStructure)) and compress them with [bgzip](http://samtools.sourceforge.net/tabix.shtml). Unsupported data formats are skipped, with warning.
+* Convert the files into [BED format](http://genome.ucsc.edu/FAQ/FAQformat.html#format1), [organize](dbcreatorStructure.md) and compress them with [bgzip](http://samtools.sourceforge.net/tabix.shtml). Unsupported data formats are skipped, with warning.
 
 * Place converted files in `[dir]/grsnp_db/[organism]/[group]` folders.
 
@@ -19,4 +19,4 @@ n=$((`find [dir] -type f -name "*.bed.gz" | wc -l`)); i=0; for file in `find [di
 
 The logic here is to count the total number of "*.bed.gz"" files, process each file keeping only standard chromosome names (`"\bchr[0-9XYM][^_]\b"` regex). Also,`awk` ensures that the end genomic coordinates are larger than the start coordinates, and adjusts offending lines accordingly. The standardized files are then compressed with `bgzip` and indexed with `tabix`.
 
-The `dbcreator*` modules creates log files (genomerunner_dbcreator.log) in the `[dir]` folders.
+The `dbcreator*` modules create log file (genomerunner_dbcreator.log) in the `[dir]` folders.

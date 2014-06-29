@@ -21,7 +21,7 @@ celery flower --broker=redis://localhost:7775/
 
 ### * I have port 8000 blocked by ~~evil admin~~ firewall. Can I run GenomeRunner on a different port?
 
-You bet. Simply use **-p** patameter to set any port you wish, e.g., -p 8080.
+You bet. Simply use **-p** parameter to set any port you wish, e.g., -p 8080.
 
 ### * I don't have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?
 
