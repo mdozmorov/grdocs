@@ -5,7 +5,9 @@ opts_chunk$set(cache.path='cache/', fig.path='figures/', cache=FALSE, tidy=TRUE,
 # See yihui.name/knitr/options for more Knitr options.
 ```
 
-Coming soon
+Results
 ========================================================
 
-Coming soon
+The web interface visualizes [enrichment](enrichment.md)/[epigenomic similarity](episimilarity.md)/annotation results as interactive heatmaps/tables.
+
+To facilitate inclusion of GenomeRunner's results into bioinformatics pipelines, all results can be downloaded from the web interface or generated using the [command line](hypergeom4.md) module.

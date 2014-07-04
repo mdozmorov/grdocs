@@ -1,9 +1,9 @@
 library(devtools)
-install_github("knitcitations", "cboettig")
+# install_github("knitcitations", "cboettig")
 library(knitcitations)
 
 require(devtools)
-getwd()
+#getwd()
 
 # document()
 # check_doc()
@@ -13,7 +13,7 @@ getwd()
 
 # devtools::install_github("jbryer/Rgitbook")
 require(Rgitbook)
-ls('package:Rgitbook') # List the public functions
+# ls('package:Rgitbook') # List the public functions
 installGitbook()
 gitbookInfo()
 checkForGitbook()
@@ -21,6 +21,7 @@ newGitbook('website') # This will create a test project
 
 # Build the Gitbook website
 buildRmd(clean=TRUE)
+buildRmd()
 buildGitbook('website', out.dir="grdocs")
 openGitbook(out.dir="grdocs")
 # publishGitbook('jbryer/Rgitbook')

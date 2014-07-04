@@ -11,11 +11,11 @@ Custom data
 Custom features of interest (FOIs)
 -----------------------------
 
-Sometimes we may want to have sets of features of interest readily accessible for the analysis, such as demo sets, or sets of random features. We may place the BED files with genomic coordinates of such FOIs in the subfolders under the `[dir]/custom_data/fois/[organism]/` folder. The names of the subfolders serve as descriptions of the sets of FOIs.
+Sometimes we want to have sets of features of interest readily accessible for the analysis, such as demo sets, or sets of random features. We may place the BED files with genomic coordinates of such FOIs in the subfolders under the `[dir]/custom_data/fois/[organism]/` folder. The names of the subfolders serve as descriptions of the sets of FOIs.
 
 An example of the `fois` folder may look like:
 
-```{r}
+```
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/fois/hg19/GWAStest1/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/fois/hg19/GWASrand/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/fois/hg19/SNPsCommonRand/*.bed
@@ -29,38 +29,34 @@ Some genome annotation tracks contain information about different biologically r
 
 It is a good idea to remove special characters from file names, if any, by running:
 
-```{r}
+```
 for FILE in *.bed; do mv -v "$FILE" echo $FILE | tr ' ' '_' | tr -d '[{}(),!]' | tr -d "'" | tr '[A-Z]' '[a-z]' | sed 's/_-_/_/g';done
 ```
 
 An example of the `gfs` folder may look like:
 
-```{r}
+```
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/tfbsEncode/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/H3K4me3/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/gwasCatalog/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/chromStates/*.bed
 ```
 
-
-Random sets of FOIs
+Random sets of SNPs
 --------------------
-
-Any scientific experiment testing for presence of an effect should include a positive control, that is, a condition known to lack an effect. In case of GenomeRunner, we should use randomly selected SNP set of the same size as the FOIs themselves. That is, we are testing:
-
-1) A set of FOIs, e.g., 100 disease-associated SNPs - we expect to find biologically relevant enrichments
-2) A random set, e.g., 100 randomly selected SNPs - we expect them to show no significant enrichments
-
-Random sets of SNPs should be generated from the background:
-
-```{r}
-zcat [dir]/custom_data/backgrounds/[org]/3gwasCatalog.bed.gz | shuf | head -n 100 > rndgwascatalog_100.bed
+Random SNP sets are used to check for the lack of enrichment. They can be generated from a background file using the following command:
+```
+for i in {10..19}; do n=$((2**i)); zcat snp128.bed.gz | shuf | head -n $n > rndsnp128_$n.bed; done
 ```
 
-To generate multiple random sets of SNPs of different sizes, use:
+The logic here is to generate random SNP sets of different sizes. The sizes are determined by the power of 2, {10..19} range, so the first set will contain 2^10=1024 random SNPs, the second - 2^11 etc. Those random SNP sets can be placed under the `[dir]/custom_data/fois/[organism]/` folder.
 
-```{r}
-for i in {7..13}; do c=$(awk "BEGIN{print 2 ** $i}"); zcat 3gwasCatalog.bed.gz | shuf | head -n $c > rndgwasCatalog_$c.bed; done
+rsid_conversion folder
+-----------------------
+This folder contains organism-specific .BED files for conversion of the lists of rsIDs into genomic coordinates. For example, for Homo Sapiens this folder may look like:
 ```
+rsid_conversion/hg19/snp138.bed
+```
+The genomic coordinates and rsIDs from the `snp138.bed` file are used to cross-map user-provided lists of rsIDs with genomic coordinates.
 
-It will generate 7 sets of randomly selected SNPs of the sizes of power of 2 (128 SNPs, 256, etc.).
+**Note:** This is an experimental feature prone to undesired results. For example, some SNPs may map to multiple places in the genome, and their rsIDs will be cross-mapped with all these places. Caveat emptor.
