@@ -3,11 +3,11 @@
 server, a module to run web interface
 ========================================================
 
-Before starting the web server, ensure you've created the [database](../dbcreator/dbcreator.md) and have at least one  [background file](../dbcreator/dbcreatorBackground.md). 
+Before starting the web server, ensure you've created a [database](../dbcreator/dbcreator.md) and have at least one [background file](../dbcreator/dbcreatorBackground.md). 
 
 #### Multiple databases support
 
-As more genome annotation data become available, it's a good idea to use the latest version of the data without losing previous database snapshots. Simply re-run the [dbcreator(../dbcreator/dbcreator.md) module specifying new database `[dir]` name according to the conventions. Multiple database names can be supplied to the `server` module, allowing a user to select the desired database version from the drop-down menu.
+As more genome annotation data become available, it's a good idea to use the latest version of the data without losing previous database snapshots. Simply re-run the [dbcreator](../dbcreator/dbcreator.md) module specifying new database `[dir]` name according to the conventions. Multiple comma-separated database names can be supplied to the `server` module, allowing a user to select desired database version from a drop-down menu.
 
 We start the web interface as:
 

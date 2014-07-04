@@ -5,19 +5,19 @@ dbcreator FAQ
 
 ### * How do I install databases for multiple organism?
 
-Simply re-run the `dbcreator` modules and designate a different organism code with the **-g** argument.
+Simply re-run the `dbcreator*` modules and designate a different organism code with the **-g** argument.
 
-### * Can I run the `dbcreator` modules on existing database?
+### * Can I run the `dbcreator` modules on partially completed database?
 
-Yes, the `dbcreator` modules skip GFs that have already been installed.
+Yes, the `dbcreator*` modules skip GFs that have already been installed.
 
-### * The `dbcreator` modules take a long time to run. Can I terminate them?
+### * The `dbcreator` modules take long time to run. Can I terminate them?
 
-Yes, and you can restart them later. The `dbcreator` modules flags partially completed GFs with a '.temp' extension. These GFs are not visible to the `server` module, and will be installed correctly upon the next run.
+Yes, and you can restart them later. The `dbcreator*` modules flags partially completed GFs with  '.temp' extension. These GFs are not visible to the `server` module, and will be installed correctly upon next `dbcreator*` runs.
 
 ### * Can I download individual GFs?
 
-Individual GFs can be installed by giving the name to the **-f** parameter (i.e `-f knownGene`).
+Individual GFs can be installed by providing their comma-separated names after the **-f** parameter (i.e `-f knownGene`).
 
 ### * Can I simply download all genome annotation data and let the `dbcreator*` modules work with it?
 

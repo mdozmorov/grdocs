@@ -16,6 +16,7 @@
     * [Custom data](dbcreator/dbcreatorCustom.md)
     * [Dbcreator FAQ](dbcreator/dbcreatorFAQ.md)
   * [Optimizer module](optimizer/optimizer.md)
+    * [Parallelization](optimizer/optimizerParallel.md)
     * [Optimizer FAQ](optimizer/optimizerFAQ.md)
   * [Server module](server/server.md)
     * [Server FAQ](server/serverFAQ.md)

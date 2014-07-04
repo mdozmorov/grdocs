@@ -3,7 +3,7 @@
 Command line module
 ========================================================
 
-GenomeRunner can be executed in command line mode by using the `hypergeom4` module. As with the [server](../server/server.md) module, first create the [database](../dbcreator/dbcreator.md) and define at least one [custom background](../dbcreator/dbcreatorBackground.md).
+GenomeRunner can be run from command line by using the `hypergeom4` submodule. As with the [server](../server/server.md) module, first create a [database](../dbcreator/dbcreator.md) and define at least one [custom background](../dbcreator/dbcreatorBackground.md).
 
 There are 3 mandatory arguments:
 - `fois.txt` - a text file containing paths to the sets of SNPs of interest. This file should contain at least one path. Example:
@@ -30,13 +30,13 @@ python -m grsnp.hypergeom4 fois.txt gfs.txt /home/testuser/db_4.10_05.12.2014/cu
 ```
 
 Use the following arguments to tweak the analysis:
-- **--output_dir**, or **-d** - path to folder where the results will be outputted. Default: current folder
+- **--run_files_dir**, or **-r** - path to folder where the results will be outputted. Default: current folder
 - **--pv_adjust**, or **-v** - method for p-value adjustment. Default: fdr. Possible values (case sensitive): bonferroni, holm, hochberg, hommel, BH, BY, fdr, None.
 - **--run_annotation**, or **-a** - for each set of SNPs, annotates each SNP by the number of their co-localization with genomic features from the `gfs.txt` file.
 
 Use the aforementioned arguments as follows:
 ```
-python -m grsnp.hypergeom4 fois.txt gfs.txt /home/testuser/db_4.10_05.12.2014/custom_data/backgrounds/hg19/1snp138Common.bed.gz --output_dir test --pv_adjust fdr --run_annotation
+python -m grsnp.hypergeom4 fois.txt gfs.txt /home/testuser/db_4.10_05.12.2014/custom_data/backgrounds/hg19/1snp138Common.bed.gz --run_files_dir test --pv_adjust fdr --run_annotation
 ```
 
 The `hypergeom4` modules creates a log file (gr_log.txt) in the output folder with the other results.

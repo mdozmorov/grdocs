@@ -3,15 +3,15 @@
 Modules
 ========================================================
 
-GenomeRunner is installed as a `grsnp` package. There are four modules in the package:
+GenomeRunner is installed as a `grsnp` module. There are four submodules in the package:
 
 1. `dbcreator_ucsc` and `dbcreator_encodeDCC` # modules for creating organism-specific genome annotation databases
-2. `optimizer` # a module to pre-calculate background overlaps with all genomic features
+2. `optimizer` # a module to speed up GenomeRunner by pre-calculating background overlap statistics
 3. `server` # a module for the web interface
-4. `hypergeom4` # a command-line executable for the enrichment/epigenomic similarity analyses
+4. `hypergeom4` # a command-line module for the enrichment/epigenomic similarity analyses
 
 The interplay among the modules is shown on the figure 
 
 ![GenomeRunner structure](../figures/GRstructure.png)
 
-Before running GenomeRunner, the first step is to create a database of genomic annotations using the  [dbcreator](../dbcreator/dbcreator.md) module. Optionally, optimize the database using the [optimizer](../optimizer/optimizer.md) module. Then, run GenomeRunner web server using the [server](../server/server.md) module. To run GenomeRunner from command line, use the [`hypergeom4`](../hypergeom4/hypergeom4.md) module.
+Before running GenomeRunner, first step is to create a database of genomic annotations using the  [dbcreator](../dbcreator/dbcreator.md) module. Optionally, optimize the database using the [optimizer](../optimizer/optimizer.md) module. Then, run GenomeRunner web server using the [server](../server/server.md) module. To run GenomeRunner from command line, use the [`hypergeom4`](../hypergeom4/hypergeom4.md) module.

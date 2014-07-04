@@ -20,5 +20,5 @@ We perform pair-wise comparison of SNP set-specific epigenomic enrichment profil
 
 ![Epigenomic similarity sketch heatmap](../figures/episimilarity_sketch_heatmap.png)
 
-Red/green gradient highlights the level of strong/weak epigenomic similarity, respectively, among SNP sets. Naturally, an epigenomic profile of a set of SNPs compared with itself will show perfect similarity - therefore, the PCCs on the diagonal of the epigenomic similarity heatmap are equal to 1 (and are the bright red in color).
+Red/green gradient highlights the level of strong/weak epigenomic similarity, respectively, among the SNP sets. Naturally, an epigenomic profile of a set of SNPs compared with itself will show perfect similarity - therefore, the PCCs on the diagonal of the epigenomic similarity heatmap are equal to 1 (and are bright red in color).
 

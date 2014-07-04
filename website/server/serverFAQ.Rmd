@@ -19,7 +19,7 @@ You sure can. Run the following command and visit Celery on [http://localhost:55
 celery flower --broker=redis://localhost:7775/
 ```
 
-### * I have port 8000 blocked by ~~evil admin~~ firewall. Can I run GenomeRunner on a different port?
+### * I have port 8000 blocked by ~~an evil admin~~ firewall. Can I run GenomeRunner on a different port?
 
 You bet. Simply use **-p** parameter to set any port you wish, e.g., -p 8080.
 
