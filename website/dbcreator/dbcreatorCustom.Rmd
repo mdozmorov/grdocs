@@ -30,7 +30,7 @@ Some genome annotation tracks contain information about different biologically r
 It is a good idea to remove special characters from file names, if any, by running:
 
 ```
-for FILE in *.bed; do mv -v "$FILE" echo $FILE | tr ' ' '_' | tr -d '[{}(),!]' | tr -d "'" | tr '[A-Z]' '[a-z]' | sed 's/_-_/_/g';done
+for FILE in *.bed; do mv -v "$FILE" $(echo "$FILE" | tr ' ' '_' | tr -d '[{}(),!]' | tr -d "'" | tr -d '`' | tr '[A-Z]' '[a-z]' | sed 's/_-_/_/g'); done
 ```
 
 An example of the `gfs` folder may look like:
