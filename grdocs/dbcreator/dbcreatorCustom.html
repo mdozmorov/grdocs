@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.1.7" data-basepath=".." data-revision="1404510546779">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="6.1.7" data-basepath=".." data-revision="1404840183841">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -727,7 +727,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_3">
                     
                         <h1 id="custom-data">Custom data</h1>
 <h2 id="custom-features-of-interest-fois-">Custom features of interest (FOIs)</h2>
@@ -740,7 +740,7 @@
 </code></pre><h2 id="custom-genomic-features-gfs-">Custom genomic features (GFs)</h2>
 <p>Some genome annotation tracks contain information about different biologically relevant features combined together. An example of such combined table is <code>wgEncodeRegTfbsClusteredV3</code> track, containing experimentally detected transcription factor binding sites for 161 different transcription factors. We may want to consider the data for each transcription factor separately. We process such combined data using the <code>extract_UCSC.py</code> script (see the <code>db</code> subfolder in the <a href="https://github.com/mdozmorov/genome_runner" target="_blank">source code</a>). We place extracted BED files in the <code>[dir]/custom_data/gfs/hg19/tfbsEncode</code> folder. The <code>tfbsEncode</code> GFs will be accessible through GenomeRunner&#39;s web interface.</p>
 <p>It is a good idea to remove special characters from file names, if any, by running:</p>
-<pre><code>for FILE in *.bed; do mv -v &quot;$FILE&quot; echo $FILE | tr &#39; &#39; &#39;_&#39; | tr -d &#39;[{}(),!]&#39; | tr -d &quot;&#39;&quot; | tr &#39;[A-Z]&#39; &#39;[a-z]&#39; | sed &#39;s/_-_/_/g&#39;;done
+<pre><code>for FILE in *.bed; do mv -v &quot;$FILE&quot; $(echo &quot;$FILE&quot; | tr &#39; &#39; &#39;_&#39; | tr -d &#39;[{}(),!]&#39; | tr -d &quot;&#39;&quot; | tr -d &#39;`&#39; | tr &#39;[A-Z]&#39; &#39;[a-z]&#39; | sed &#39;s/_-_/_/g&#39;); done
 </code></pre><p>An example of the <code>gfs</code> folder may look like:</p>
 <pre><code>/home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/tfbsEncode/*.bed
 /home/testuser/Documents/db_1.01_05.12.2014/custom_data/gfs/hg19/H3K4me3/*.bed

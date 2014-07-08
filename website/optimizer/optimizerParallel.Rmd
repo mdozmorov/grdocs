@@ -41,11 +41,11 @@ Start the `optimizer` module on the host computer:
 ```
 python -m grsnp.optimizer -g [org] -d [dir] -w 0
 ```
-The **-w 0** argument prohibits host computer to running workers locally. If sufficient CPU power is avaliable on host machine, it is OK to set up **-w** argument to "1".
+The **-w 0** argument prohibits host computer to running workers locally. If sufficient CPU power is avaliable on the host machine, it is OK to set up **-w** argument to "1".
 
 Now, start celery worker on a remote machine:
 ```
-celery worker --app=grsnp.worker_optimizer --data_dir [dir] --loglevel INFO -E -n [workerName] -b redis://10.84.XXX.XXX:7775
+celery worker --app=grsnp.worker_optimizer --data_dir [dir] --loglevel INFO -E -n [workerName] -Q optimizer.group -b redis://10.84.XXX.XXX:7775
 ```
 At that time, worker on the remote machine start running optimization jobs. Start workers on other remote machines. The workers now will run different optimization jobs and their results will be assembled by the host computer.
 

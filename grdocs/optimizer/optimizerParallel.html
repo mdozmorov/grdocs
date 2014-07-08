@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.2.1" data-basepath=".." data-revision="1404510546779">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="6.2.1" data-basepath=".." data-revision="1404840183841">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -751,9 +751,9 @@ eth0      Link encap:Ethernet  HWaddr 76:21:00:f4:56:c2
 </code></pre><p><code>nohup</code> will allow redis to run in the background.</p>
 <p>Start the <code>optimizer</code> module on the host computer:</p>
 <pre><code>python -m grsnp.optimizer -g [org] -d [dir] -w 0
-</code></pre><p>The <strong>-w 0</strong> argument prohibits host computer to running workers locally. If sufficient CPU power is avaliable on host machine, it is OK to set up <strong>-w</strong> argument to &quot;1&quot;.</p>
+</code></pre><p>The <strong>-w 0</strong> argument prohibits host computer to running workers locally. If sufficient CPU power is avaliable on the host machine, it is OK to set up <strong>-w</strong> argument to &quot;1&quot;.</p>
 <p>Now, start celery worker on a remote machine:</p>
-<pre><code>celery worker --app=grsnp.worker_optimizer --data_dir [dir] --loglevel INFO -E -n [workerName] -b redis://10.84.XXX.XXX:7775
+<pre><code>celery worker --app=grsnp.worker_optimizer --data_dir [dir] --loglevel INFO -E -n [workerName] -Q optimizer.group -b redis://10.84.XXX.XXX:7775
 </code></pre><p>At that time, worker on the remote machine start running optimization jobs. Start workers on other remote machines. The workers now will run different optimization jobs and their results will be assembled by the host computer.</p>
 <h2 id="tips">Tips</h2>
 <p>Monitor Celery workers on the host computer via web interface on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a>:</p>
