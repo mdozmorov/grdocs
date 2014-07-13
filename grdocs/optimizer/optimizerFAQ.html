@@ -7,7 +7,7 @@
         <title>Optimizer FAQ | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.2.2" data-basepath=".." data-revision="1404840183841">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="6.2.2" data-basepath=".." data-revision="1405224398167">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -121,6 +121,8 @@
             <a href="https://github.com/mdozmorov/grdocs/edit/master/optimizer/optimizerFAQ.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
+
+	
 
         
         <li class="divider"></li>
@@ -423,7 +425,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.2.2" data-path="optimizer/optimizerFAQ.html">
+        <li class="chapter active" data-level="6.2.2" data-path="optimizer/optimizerFAQ.html">
             
                 
                     <a href="../optimizer/optimizerFAQ.html">
@@ -727,16 +729,16 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_22">
                     
                         <h1 id="optimizer-faq">optimizer FAQ</h1>
-<h3 id="-is-it-mandatory-to-run-the-optimizer-module-">* Is it mandatory to run the optimizer module?</h3>
+<h3 id="-is-it-mandatory-to-run-the-optimizer-module">* Is it mandatory to run the optimizer module?</h3>
 <p>No. If the <code>bkg_overlaps.gr</code> file was not created by the <code>optimizer</code> module, GenomeRunner will calculate overlap statistics on the fly. However, this wil lengthen run time, so be patient.</p>
-<h3 id="-does-optimizer-module-process-genomic-features-filtered-by-score-">* Does optimizer module process genomic features filtered by score?</h3>
+<h3 id="-does-optimizer-module-process-genomic-features-filtered-by-score">* Does optimizer module process genomic features filtered by score?</h3>
 <p>Yes. The <code>optimizer</code> module processes <code>grsnp_db*</code> folders with genomic features filtered by score and creates the <code>bkg_overlaps.gr</code> files for each folder.</p>
-<h3 id="-i-started-the-optimizer-module-but-it-takes-too-long-can-i-terminate-it-without-losing-what-has-been-pre-calculated-">* I started the optimizer module but it takes too long. Can I terminate it without losing what has been pre-calculated?</h3>
+<h3 id="-i-started-the-optimizer-module-but-it-takes-too-long-can-i-terminate-it-without-losing-what-has-been-pre-calculated">* I started the optimizer module but it takes too long. Can I terminate it without losing what has been pre-calculated?</h3>
 <p>Yes, you can safely terminate the process. The partially completed file <code>bkg_overlaps.gr.tmp</code> will be re-used and appended when the <code>optimizer</code> module is restarted.</p>
-<h3 id="-how-the-bkg_overlaps-gr-file-is-structured-">* How the bkg_overlaps.gr file is structured?</h3>
+<h3 id="-how-the-bkg_overlapsgr-file-is-structured">* How the bkg_overlaps.gr file is structured?</h3>
 <p>It is a tab-separated text file containing the following information:</p>
 <pre><code>[Absolute path to the GF file]tab[Absolute path to the default background_one]:[bgs_obs]:[n_bgs],[Absolute path to the default background_two]:[bgs_obs]:[n_bgs] etc.,
 </code></pre><p>where [n_bgs] is the total number of regions in the background file, and [bgs_obs] is the number of regions overlapping a genomic feature.</p>

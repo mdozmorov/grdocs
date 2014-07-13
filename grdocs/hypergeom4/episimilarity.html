@@ -7,7 +7,7 @@
         <title>Epigenomic similarity results | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="7.2" data-basepath=".." data-revision="1404840183841">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="7.2" data-basepath=".." data-revision="1405224398167">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -121,6 +121,8 @@
             <a href="https://github.com/mdozmorov/grdocs/edit/master/hypergeom4/episimilarity.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
+
+	
 
         
         <li class="divider"></li>
@@ -558,7 +560,7 @@
         </li>
     
         
-        <li class="chapter " data-level="7.2" data-path="hypergeom4/episimilarity.html">
+        <li class="chapter active" data-level="7.2" data-path="hypergeom4/episimilarity.html">
             
                 
                     <a href="../hypergeom4/episimilarity.html">
@@ -727,16 +729,19 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_11">
                     
                         <h1 id="epigenomic-similarity-analysis-results">Epigenomic similarity analysis results</h1>
 <p>The <a href="../misc/definitions.html">epigenomic similarity analysis</a> estimates similarity among the sets of SNPs based on their enrichment within regulatory landscapes. Consider 3 sets of SNPs:</p>
-<p><img src="../figures/episimilarity_sketch.png" alt="Epigenomic similarity sketch"></p>
-<p>SNP set 1 is enriched in Genomic annotations 2 but not in 1. SNP set 2 and SNP set 3 are similarly enriched  in Genomic annotations 1 but not in 2. Testing each SNP set against additional genomic annotations will construct the SNP set-specific <a href="../misc/definitions.html">epigenomic enrichment profile</a> of the <a href="../misc/definitions.html">transformed enrichment p-values</a>. </p>
-<p><img src="../figures/episimilarity_idea.gif" alt="Epigenomic similarity idea"></p>
+<p><img src="../figures/episimilarity1.gif" alt="Epigenomic similarity sketch"></p>
+<p>SNP sets 1 &amp; 2 are enriched in Genomic annotations B but not in A. SNP seta 3 &amp; 4 are similarly enriched  in Genomic annotations A but not in B. Testing each SNP set against additional genomic annotations will construct the SNP set-specific <a href="../misc/definitions.html">epigenomic enrichment profile</a> of the <a href="../misc/definitions.html">transformed enrichment p-values</a>. </p>
+<p><img src="../figures/episimilarity2.gif" alt="Epigenomic similarity idea"></p>
 <p>We perform pair-wise comparison of SNP set-specific epigenomic enrichment profiles, construct an MxM matrix of Pearson&#39;s correlation coefficients (PCCs) and visualize it as a heatmap. For our example, the epigenomic similarity heatmap may look like:</p>
-<p><img src="../figures/episimilarity_sketch_heatmap.png" alt="Epigenomic similarity sketch heatmap"></p>
+<p><img src="../figures/episimilarity3.gif" alt="Epigenomic similarity sketch heatmap"></p>
 <p>Red/green gradient highlights the level of strong/weak epigenomic similarity, respectively, among the SNP sets. Naturally, an epigenomic profile of a set of SNPs compared with itself will show perfect similarity - therefore, the PCCs on the diagonal of the epigenomic similarity heatmap are equal to 1 (and are bright red in color).</p>
+<p>We can further identify if the significance of enrichment is statistically different between groups of SNP set 1 &amp; 2 vs. SNP set 3 &amp; 4. This may be useful when comparing enrichment profiles of groups of SNP sets from different individuals. This comparison may answer questions like &quot;Which epigenomic elements are associated with patient-specific SNPs and not with SNPs in healthy population?&quot;, or &quot;Are there groups of patients with SNPs differentially associated with certain epigenomic elements, which elements?&quot;.</p>
+<p>Consider a matrix of -log10-transformed enrichment p-values - they can be compared between the groups using t-test. Assuming standard deviation of the transformed p-values within the groups is 0.8, we need 6x6 groups to detect 2-fold difference at 0.05 significance level at 90% power. This 2-fold difference may indicate SNPs in one group have no associations with a genomic annotation (transformed p-values are 0, or non-transformed are 1), while SNPs in another group have statistically significant associations (transformed p-values are 2, or non-transformed are 0.01).</p>
+<p><img src="../figures/episimilarity4.gif" alt="Epigenomic differences"></p>
 
                     
                     </section>

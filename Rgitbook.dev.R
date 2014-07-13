@@ -23,7 +23,8 @@ newGitbook('website') # This will create a test project
 buildRmd(clean=TRUE)
 buildRmd()
 buildGitbook('website', out.dir="grdocs")
-# Or, from command line: gitbook build website/ --output grdocs
+# Or, from command line: 
+#  /cygdrive/c/Users/dozmorovm/AppData/Roaming/npm/gitbook build website/ --output grdocs
 openGitbook(out.dir="grdocs")
 # publishGitbook('jbryer/Rgitbook')
 # 

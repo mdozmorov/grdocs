@@ -7,7 +7,7 @@
         <title>Server FAQ | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.3.1" data-basepath=".." data-revision="1404840183841">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="6.3.1" data-basepath=".." data-revision="1405224398167">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -121,6 +121,8 @@
             <a href="https://github.com/mdozmorov/grdocs/edit/master/server/serverFAQ.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
+
+	
 
         
         <li class="divider"></li>
@@ -461,7 +463,7 @@
                 
     
         
-        <li class="chapter " data-level="6.3.1" data-path="server/serverFAQ.html">
+        <li class="chapter active" data-level="6.3.1" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -727,17 +729,17 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_28">
                     
                         <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunner-s-runs-">* Can I parallelize GenomeRunner&#39;s runs?</h3>
+<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
 <p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing-">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
+<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
 <p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
 <pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port-">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
+</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
 <p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-don-t-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine-what-shall-i-do-to-run-genomerunner-">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
+<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
 <p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
 <pre><code># Redirect port
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
