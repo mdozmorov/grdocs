@@ -7,7 +7,7 @@
         <title>Introduction | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="GenomeRunner is a tool for functional interpretation of sets of single nucleotide polymorphisms (SNPs) by considering their co-localization with functional/regulatory genome annotation data (epigenomic elements, see definitions). It is particularly useful for interpretation of functional roles of rare variants and SNPs in non-protein coding regions. See also &quot;Why should I care..&quot; questions in the Results FAQ section. An example of GenomeRunner&#39;s results can be found in the analysis of Sjogren&#39;s syndrome GWAS (Nature Genetics), where it identified RFX5 transcription factor binding site as most statistically significantly co-localized with the disease-associated SNPs, affecting gene expression changes.">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="0" data-basepath="." data-revision="1404840183841">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="0" data-basepath="." data-revision="1405224398167">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -120,6 +120,8 @@
         </li>
         
 
+	
+
         
         <li class="divider"></li>
         
@@ -127,7 +129,7 @@
         
     
         
-        <li class="chapter " data-level="0" data-path="index.html">
+        <li class="chapter active" data-level="0" data-path="index.html">
             
                 
                     <a href="./index.html">
@@ -725,12 +727,12 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_17">
                     
                         <h1 id="genomerunner">GenomeRunner</h1>
-<h5 id="author-mikhail-dozmorov-mikhail-at-dozmorov-dot-com-mailto-mikhail-dozmorov-com-lukas-cara-cory-giles">Author: Mikhail Dozmorov <a href="mailto:mikhail@dozmorov.com" target="_blank">mikhail at dozmorov dot com</a>, Lukas Cara, Cory Giles</h5>
-<h5 id="website-www-genomerunner-org-http-www-genomerunner-org-">Website: <a href="http://www.genomerunner.org" target="_blank">www.genomerunner.org</a></h5>
-<h5 id="repository-github-com-mdozmorov-genome_runner-https-github-com-mdozmorov-genome_runner-">Repository: <a href="https://github.com/mdozmorov/genome_runner" target="_blank">github.com//mdozmorov/genome_runner</a></h5>
+<h5 id="author-mikhail-dozmorov-mikhail-at-dozmorov-dot-commailtomikhaildozmorovcom-lukas-cara-cory-giles">Author: Mikhail Dozmorov <a href="mailto:mikhail@dozmorov.com" target="_blank">mikhail at dozmorov dot com</a>, Lukas Cara, Cory Giles</h5>
+<h5 id="website-wwwgenomerunnerorghttpwwwgenomerunnerorg">Website: <a href="http://www.genomerunner.org" target="_blank">www.genomerunner.org</a></h5>
+<h5 id="repository-githubcommdozmorovgenome_runnerhttpsgithubcommdozmorovgenome_runner">Repository: <a href="https://github.com/mdozmorov/genome_runner" target="_blank">github.com//mdozmorov/genome_runner</a></h5>
 <p><a href="http://www.genomerunner.org" target="_blank">GenomeRunner</a> is a tool for functional interpretation of sets of single nucleotide polymorphisms (SNPs) by considering their co-localization with functional/regulatory genome annotation data (epigenomic elements, see <a href="misc/definitions.html">definitions</a>). It is particularly useful for interpretation of functional roles of rare variants and SNPs in non-protein coding regions. See also &quot;Why should I care..&quot; questions in the <a href="hypergeom4/resultsFaq.html">Results FAQ</a> section. An example of GenomeRunner&#39;s results can be found in the analysis of Sjogren&#39;s syndrome GWAS (<a href="http://www.nature.com/ng/journal/v45/n11/full/ng.2792.html" target="_blank">Nature Genetics</a>), where it identified RFX5 transcription factor binding site as most statistically significantly co-localized with the disease-associated SNPs, affecting gene expression changes.</p>
 <p>GenomeRunner calculates <a href="hypergeom4/enrichment.html">enrichment p-values</a> using Chi-squared test by evaluating whether a set of SNPs co-localizes with regulatory elements more often that could happen by chance. For three or more sets of SNPs, GenomeRunner also implements a novel idea of <a href="hypergeom4/similarity.html">epigenomic similarity</a> analysis by correlating SNP set-specific epigenomic enrichment profiles (see <a href="misc/definitions.html">definitions</a>. Downloadable results are visualized as interactive heatmaps and tables.</p>
 <p>This documentation describes inner workings of GenomeRunner web interface and command line usage, explains the statistics, conventions and terms, and provides instructions for local installation on Linux-based systems.</p>
