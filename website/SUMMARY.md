@@ -19,6 +19,7 @@
     * [Parallelization](optimizer/optimizerParallel.md)
     * [Optimizer FAQ](optimizer/optimizerFAQ.md)
   * [Server module](server/server.md)
+    * [Parallelization](server/serverParallel.md)
     * [Server FAQ](server/serverFAQ.md)
   * [Command line module](hypergeom4/hypergeom4.md)
     * [Command line FAQ](hypergeom4/hypergeom4Faq.md)
