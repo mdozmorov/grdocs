@@ -1,12 +1,10 @@
 
 
-Parallelizing optimizer module
+Parallelizing server module
 ========================================================
-The `optimizer` module takes considerable amount of time and computer resources to run. To speed it up, the `optimizer` module uses [Celery distributed task queue](http://www.celeryproject.org/) with [Redis](http://redis.io/) backend.
+The `server` module can either be run on a single machine, or its tasks can be distributed among multiple machines. [Celery distributed task queue](http://www.celeryproject.org/) with [Redis](http://redis.io/) backend are used to parallelize the `server` module, set up similarly to the [optimizer](../optimizer/optimizerParallel.md) module.
 
-To gain maximum speedup, it is recommended to set up GenomeRunner and identical [databases](../dbcreator/dbcreator_ucsc.md) on multiple computers in the same network and configure celery workers to interact with Redis broker on the host computer.
-
-![Parallelization overview](../figures/CeleryRedis.png "Parallelization overview")
+The host and the remote machines should have access to the identical [databases](../dbcreator/dbcreator_ucsc.md). The host and the remote machines should have access to **THE SAME RESULTS FOLDER**, best to be set up on a network drive.
 
 Setting up
 -----------
@@ -14,6 +12,7 @@ The following installation steps assume:
 * you have multiple Linux computers within the same network and selected one to be host computer;
 * GenomeRunner has been installed in [developer mode](../installation/installation.md);
 * The [database](../dbcreator/dbcreator_ucsc.md) and the [background](../dbcreator/dbcreatorBackground.md) have been created and mirrored among the computers.
+* The `results` folder is available to the host and the remote machines
 
 Check host computer' IP address by running `ifconfig` command.
 ```
@@ -21,26 +20,24 @@ $ ifconfig
 eth0      Link encap:Ethernet  HWaddr 76:21:00:f4:56:c2  
           inet addr:10.84.XXX.XXX  Bcast:10.84.XXX.XXX  Mask:255.255.XXX.X
 ```
-Note the inet addr:**10.84.XXX.XXX** number. Add this number in `celeryconfiguration_optimizer.py` file on the host and remote computers:
+Note the inet addr:**10.84.XXX.XXX** number. Add this number in `celeryconfiguration.py` file on the host and remote computers:
 ```
 BROKER_URL = "redis://10.84.XXX.XXX:{}/".format(redis_port) + db_num
 ```
 
-Start redis server on the host computer:
-```
-nohup redis-server --port 7775 &
-```
-`nohup` will allow redis to run in the background.
-
 Start the `optimizer` module on the host computer:
 ```
-python -m grsnp.optimizer -g [org] -d [dir] -w 0
+python -m grsnp.server -g [org] -d [dir1],[dir2] -r [path/to/shared/results/folder] -w 0
 ```
-The **-w 0** argument prohibits the host computer to run workers locally. If sufficient CPU power is avaliable on the host machine, it is OK to set up **-w** argument to "1".
+The **-w 0** argument prohibits host computer to run workers locally. If sufficient CPU power is avaliable on the host machine, it is OK to set up **-w** argument to "1".
+
+Note the **-r** argument specifying path to the chared results folder.
+
+The **-d** argument takes comma-separated paths to the databases.
 
 Now, start celery worker on a remote machine:
 ```
-celery worker --app=grsnp.worker_optimizer --data_dir [dir] --loglevel INFO -E -n [workerName] -Q optimizer.group -b redis://10.84.XXX.XXX:7775
+celery worker --app=grsnp.worker_hypergeom4 --d [dir1],[dir2] -r [path/to/shared/results/folder] --loglevel INFO -E
 ```
 At that time, this worker start running optimization jobs. Start workers on other remote machines. The workers now will run different optimization jobs and their results will be assembled by the host computer.
 
