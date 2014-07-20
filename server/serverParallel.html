@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="mdozmorov/grdocs" data-level="6.3.1" data-basepath=".." data-revision="1405448325392">
+    <div class="book" data-github="mdozmorov/grdocs" data-level="6.3.1" data-basepath=".." data-revision="1405872601847">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -747,7 +747,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_26">
                     
                         <h1 id="parallelizing-server-module">Parallelizing server module</h1>
 <p>The <code>server</code> module can either be run on a single machine, or its tasks can be distributed among multiple machines. <a href="http://www.celeryproject.org/" target="_blank">Celery distributed task queue</a> with <a href="http://redis.io/" target="_blank">Redis</a> backend are used to parallelize the <code>server</code> module, set up similarly to the <a href="../optimizer/optimizerParallel.html">optimizer</a> module.</p>
@@ -782,6 +782,12 @@ eth0      Link encap:Ethernet  HWaddr 76:21:00:f4:56:c2
 celery inspect active_queues -b redis://localhost:7775/0
 </code></pre><p>Stop all workers:</p>
 <pre><code>ps auxww | grep &#39;celery worker&#39; | awk &#39;{print $2}&#39; | xargs kill -9
+</code></pre><p>Start redis command line utility:</p>
+<pre><code>redis-cli
+</code></pre><p>Get keys of all workers:</p>
+<pre><code>redis-cli -h localhost -p 7775 keys \*
+</code></pre><p>Get worker-specific messages from redis:</p>
+<pre><code>redis-cli -h localhost -p 7775 keys \*
 </code></pre>
                     
                     </section>
@@ -809,6 +815,10 @@ celery inspect active_queues -b redis://localhost:7775/0
 
     
     <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>
