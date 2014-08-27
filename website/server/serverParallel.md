@@ -71,5 +71,5 @@ redis-cli -h localhost -p 7775 keys \*
 
 Get worker-specific messages from redis:
 ```
-redis-cli -h localhost -p 7775 keys \*
+GET celery-task-meta-34a5c7a6-f7d6-4c19-ae6c-e8057664f33d
 ```
