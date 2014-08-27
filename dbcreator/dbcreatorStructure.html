@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Server FAQ | GenomeRunner</title>
+        <title>Database structure | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../hypergeom4/hypergeom4.html" />
+    <link rel="next" href="../dbcreator/dbcreatorBackground.html" />
     
     
-    <link rel="prev" href="../server/serverParallel.html" />
+    <link rel="prev" href="../dbcreator/dbcreatorFiltering.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.1.5" data-basepath=".." data-revision="1409098517178">
     
 
 <div class="book-summary">
@@ -243,7 +243,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.1.5" data-path="dbcreator/dbcreatorStructure.html">
+        <li class="chapter active" data-level="6.1.5" data-path="dbcreator/dbcreatorStructure.html">
             
                 
                     <a href="../dbcreator/dbcreatorStructure.html">
@@ -399,7 +399,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.3.2" data-path="server/serverFAQ.html">
+        <li class="chapter " data-level="6.3.2" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -669,22 +669,72 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_10">
                     
-                        <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
-<p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
-<p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
-<pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
-<p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
-<p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
-<pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-# Start the server normally
-python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
+                        <h1 id="database-structure">Database structure</h1>
+<p>Although the database structure may look daunting at first, it follows logical organization of the subfolders:</p>
+<ul>
+<li><code>downloads</code> - the [organism] subfolders here store organism-specific raw genome annotation data. Populated by the <code>dbcreator*</code> modules, or by manually <a href="dbcreatorFAQ.html">mirroring the databases</a>;</li>
+<li><code>grsnp_db</code> - the [organism] subfolders here contain organism-specific processed genome annotation data, organized into subfolders according to the UCSC schema. The ENCODE data (track names beginning with <em>wgEncode</em>) are placed under separate ENCODE subfolders strictured according to the <code>[dir]/grsnp_db/[organism]/ENCODE/[data source/type]/[Tier]/[cell type]</code> schema.</li>
+<li><code>grsnp_db_##_plus/minus</code> subfolders contain genome annotation data filtered by ## percent score and/or strand thresholds, as described in the <a href="dbcreatorFiltering.html">Filtering</a> section;</li>
+<li><code>custom_data</code> - contains <code>backgrounds</code>, <code>fois</code>, <code>gfs</code> and <code>rsid_conversion</code> subfolders, each contains organism-specific pre-defined datasets (see <a href="dbcreatorCustom.html">Custom data</a>);</li>
+<li><code>results</code> and <code>uploads</code> are special folders containing run-specific files.</li>
+</ul>
+<p>An example of complete database structure may look like:</p>
+<pre><code>.
+├── custom_data
+│   ├── backgrounds
+│   │   ├── hg19
+│   │   ├── mm10
+│   │   └── mm9
+│   ├── fois
+│   │   ├── hg19
+│   │   │   ├── GWASmore15
+│   │   ├── mm10
+│   │   ├── mm9
+│   ├── gfs
+│   │   ├── hg19
+│   │   │   ├── gwasCatalog
+│   │   │   ├── H3K4me3
+│   │   │   └── tfbsEncode
+│   │   ├── mm10
+│   │   └── mm9
+│   └── rsid_conversion
+│       ├── hg19
+│   
+├── downloads
+│   
+├── grsnp_db
+│   └── hg19
+│       ├── compGeno
+│       ├── ENCODE
+│       │   ├── BroadHistone
+│       │   │   ├── Tier1
+│       │   │   │   ├── Gm12878
+│       │   │   │   ├── H1hesc
+│       │   │   │   └── K562
+│       │   │   ├── Tier2
+│       │   │   │   ├── A549
+│       ├── expression
+│       ├── genes
+│       ├── map
+│       ├── neandertal
+│       ├── phenDis
+│       ├── regulation
+│       ├── rep
+│       ├── rna
+│       ├── unsorted
+│       └── varRep
+│   
+├── grsnp_db_25
+├── grsnp_db_25_minus
+├── grsnp_db_25_plus
+│   
+├── grsnp_db_50
+│   
+├── results
+│   
+└── uploads
 </code></pre>
                     
                     </section>
@@ -695,10 +745,10 @@ python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
         </div>
 
         
-        <a href="../server/serverParallel.html" class="navigation navigation-prev " aria-label="Previous page: Parallelization"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreatorFiltering.html" class="navigation navigation-prev " aria-label="Previous page: Filtering"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hypergeom4/hypergeom4.html" class="navigation navigation-next " aria-label="Next page: Command line module"><i class="fa fa-angle-right"></i></a>
+        <a href="../dbcreator/dbcreatorBackground.html" class="navigation navigation-next " aria-label="Next page: Background"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

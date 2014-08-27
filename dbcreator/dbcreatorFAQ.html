@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Server FAQ | GenomeRunner</title>
+        <title>Dbcreator FAQ | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../hypergeom4/hypergeom4.html" />
+    <link rel="next" href="../optimizer/optimizer.html" />
     
     
-    <link rel="prev" href="../server/serverParallel.html" />
+    <link rel="prev" href="../dbcreator/dbcreatorCustom.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.1.8" data-basepath=".." data-revision="1409098517178">
     
 
 <div class="book-summary">
@@ -291,7 +291,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.1.8" data-path="dbcreator/dbcreatorFAQ.html">
+        <li class="chapter active" data-level="6.1.8" data-path="dbcreator/dbcreatorFAQ.html">
             
                 
                     <a href="../dbcreator/dbcreatorFAQ.html">
@@ -399,7 +399,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.3.2" data-path="server/serverFAQ.html">
+        <li class="chapter " data-level="6.3.2" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -669,23 +669,22 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_8">
                     
-                        <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
-<p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
-<p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
-<pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
-<p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
-<p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
-<pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-# Start the server normally
-python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
-</code></pre>
+                        <h1 id="dbcreator-faq">dbcreator FAQ</h1>
+<h3 id="-how-do-i-install-databases-for-multiple-organism">* How do I install databases for multiple organism?</h3>
+<p>Simply re-run the <code>dbcreator*</code> modules and designate a different organism code with the <strong>-g</strong> argument.</p>
+<h3 id="-can-i-run-the-dbcreator-modules-on-partially-completed-database">* Can I run the <code>dbcreator</code> modules on partially completed database?</h3>
+<p>Yes, the <code>dbcreator*</code> modules skip GFs that have already been installed.</p>
+<h3 id="-the-dbcreator-modules-take-long-time-to-run-can-i-terminate-them">* The <code>dbcreator</code> modules take long time to run. Can I terminate them?</h3>
+<p>Yes, and you can restart them later. The <code>dbcreator*</code> modules flags partially completed GFs with  &#39;.temp&#39; extension. These GFs are not visible to the <code>server</code> module, and will be installed correctly upon next <code>dbcreator*</code> runs.</p>
+<h3 id="-can-i-download-individual-gfs">* Can I download individual GFs?</h3>
+<p>Individual GFs can be installed by providing their comma-separated names after the <strong>-f</strong> parameter (i.e <code>-f knownGene</code>).</p>
+<h3 id="-can-i-simply-download-all-genome-annotation-data-and-let-the-dbcreator-modules-work-with-it"><em> Can I simply download all genome annotation data and let the `dbcreator</em>` modules work with it?</h3>
+<p>In fact, this is the recommended way. <code>rsync</code> can be used to mirror the USCS data files. Simply create <code>[dir]/downloads/</code> folder and execute the following command within it:</p>
+<pre><code>rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/* .
+</code></pre><p>Remember that <code>rsync</code> is not infallible. To automatically restart broken transfers, check GenomeRunner&#39; <a href="https://github.com/mdozmorov/genome_runner/tree/master/commandline" target="_blank">source code</a> for <code>autorsync.sh</code> script in the <code>commandline</code> folder.</p>
+
                     
                     </section>
                 
@@ -695,10 +694,10 @@ python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
         </div>
 
         
-        <a href="../server/serverParallel.html" class="navigation navigation-prev " aria-label="Previous page: Parallelization"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreatorCustom.html" class="navigation navigation-prev " aria-label="Previous page: Custom data"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hypergeom4/hypergeom4.html" class="navigation navigation-next " aria-label="Next page: Command line module"><i class="fa fa-angle-right"></i></a>
+        <a href="../optimizer/optimizer.html" class="navigation navigation-next " aria-label="Next page: Optimizer module"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

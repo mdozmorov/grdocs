@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Server FAQ | GenomeRunner</title>
+        <title>How dbcreator works | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../hypergeom4/hypergeom4.html" />
+    <link rel="next" href="../dbcreator/dbcreatorFiltering.html" />
     
     
-    <link rel="prev" href="../server/serverParallel.html" />
+    <link rel="prev" href="../dbcreator/dbcreator_encodeDCC.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.1.3" data-basepath=".." data-revision="1409098517178">
     
 
 <div class="book-summary">
@@ -211,7 +211,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.1.3" data-path="dbcreator/dbcreatorWorks.html">
+        <li class="chapter active" data-level="6.1.3" data-path="dbcreator/dbcreatorWorks.html">
             
                 
                     <a href="../dbcreator/dbcreatorWorks.html">
@@ -399,7 +399,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.3.2" data-path="server/serverFAQ.html">
+        <li class="chapter " data-level="6.3.2" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -669,23 +669,23 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_11">
                     
-                        <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
-<p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
-<p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
-<pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
-<p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
-<p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
-<pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-# Start the server normally
-python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
-</code></pre>
+                        <h1 id="how-the-dbcreator-module-works">How the dbcreator module works</h1>
+<p>The <code>dbcreator*</code> modules perform several steps:</p>
+<ul>
+<li><p>Download raw data files and place them in the <code>[dir]/downloads/</code> folder. Note that this step may take several days on a slow network connection. If the download process fails, simply re-run the <code>dbcreator*</code> modules - this will resume the process. A more efficient way is to mirror the databases using rsync (see the <a href="dbcreatorFAQ.html">dbcreator FAQ</a>).</p>
+</li>
+<li><p>Convert the files into <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1" target="_blank">BED format</a>, <a href="dbcreatorStructure.html">organize</a> and compress them with <a href="http://samtools.sourceforge.net/tabix.shtml" target="_blank">bgzip</a>. Unsupported data formats are skipped, with warning.</p>
+</li>
+<li><p>Place converted files in <code>[dir]/grsnp_db/[organism]/[group]</code> folders.</p>
+</li>
+</ul>
+<p>Some genome annotation data may contain non-standard chromosome names, such as <em>chr1_gl000192_random</em>, <em>chr6_ssto_hap7</em>, <em>chrUn_gl000248</em>. These regions will introduce artefacts in the p-value calculations. Therefore, it is a good idea to post-process the database by running:</p>
+<pre><code>n=$((`find [dir] -type f -name &quot;*.bed.gz&quot; | wc -l`)); i=0; for file in `find [dir] -type f -name &quot;*.bed.gz&quot;`; do f=`basename $file`; d=`dirname $file`; i=$((i+1)); echo &quot;Processing&quot; $i &quot;out of&quot; $n &quot;:&quot; $file; zcat $file | grep &quot;\bchr[0-9XYM][^_]\b&quot; | awk &#39;BEGIN {OFS=&quot;\t&quot;} { if ( $3 &lt;= $2) { print $1, $2, $2+1, $4, $5, $6 } else { print $1, $2, $3, $4, $5, $6 } }&#39; | sort -k1,1 -k2,2n -k3,3n | uniq &gt; $d/${f%???} &amp;&amp; rm $file; bgzip ${file%???} &amp;&amp; tabix $file; done
+</code></pre><p>The logic here is to count the total number of &quot;*.bed.gz&quot;&quot; files, process each file keeping only standard chromosome names (<code>&quot;\bchr[0-9XYM][^_]\b&quot;</code> regex). Also,<code>awk</code> ensures that the end genomic coordinates are larger than the start coordinates, and adjusts offending lines accordingly. The standardized files are then compressed with <code>bgzip</code> and indexed with <code>tabix</code>.</p>
+<p>The <code>dbcreator*</code> modules create log file (genomerunner_dbcreator.log) in the <code>[dir]</code> folders.</p>
+
                     
                     </section>
                 
@@ -695,10 +695,10 @@ python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
         </div>
 
         
-        <a href="../server/serverParallel.html" class="navigation navigation-prev " aria-label="Previous page: Parallelization"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreator_encodeDCC.html" class="navigation navigation-prev " aria-label="Previous page: dbcreator_encodeDCC"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hypergeom4/hypergeom4.html" class="navigation navigation-next " aria-label="Next page: Command line module"><i class="fa fa-angle-right"></i></a>
+        <a href="../dbcreator/dbcreatorFiltering.html" class="navigation navigation-next " aria-label="Next page: Filtering"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

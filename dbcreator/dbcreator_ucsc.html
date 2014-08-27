@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Server FAQ | GenomeRunner</title>
+        <title>dbcreator_ucsc | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../hypergeom4/hypergeom4.html" />
+    <link rel="next" href="../dbcreator/dbcreator_encodeDCC.html" />
     
     
-    <link rel="prev" href="../server/serverParallel.html" />
+    <link rel="prev" href="../dbcreator/dbcreator.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.1.1" data-basepath=".." data-revision="1409098517178">
     
 
 <div class="book-summary">
@@ -179,7 +179,7 @@
                 
     
         
-        <li class="chapter " data-level="6.1.1" data-path="dbcreator/dbcreator_ucsc.html">
+        <li class="chapter active" data-level="6.1.1" data-path="dbcreator/dbcreator_ucsc.html">
             
                 
                     <a href="../dbcreator/dbcreator_ucsc.html">
@@ -399,7 +399,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.3.2" data-path="server/serverFAQ.html">
+        <li class="chapter " data-level="6.3.2" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -669,23 +669,28 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_13">
                     
-                        <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
-<p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
-<p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
-<pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
-<p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
-<p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
-<pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-# Start the server normally
-python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
-</code></pre>
+                        <h1 id="running-dbcreator_ucsc-module">Running dbcreator_ucsc module</h1>
+<p>First, create and go to a folder named, e.g., <strong>db_1.01_05.12.2014</strong>. A database name consists of the <strong>db</strong> prefix, the <strong>1.01</strong> database version, and the <strong>05.12.2014</strong> date when the database was created. Note that throughout this guide <code>[dir]</code> represents the <strong>full path</strong> to a database (i.e <code>[dir] = /home/testuser/Documents/db_1.01_05.12.2014</code>). Do not use <code>~</code> shortcuts.</p>
+<pre><code>mkdir [dir]
+cd [dir]  # Recommended: the `dbcreator*` module should be executed within the [dir] folder
+python -m grsnp.dbcreator_ucsc -g hg19 -d [dir]
+</code></pre><p>Executing the <code>dbcreator_ucsc</code> module without any arguments will show short help text:</p>
+<pre><code>usage: python -m grsnp.dbcreator_ucsc [-h] --data_dir [DATA_DIR]
+                                      [--organism [ORGANISM]]
+                                      [--featurenames [FEATURENAMES]] [--max [MAX]]
+                                      [--galaxy] [--score [SCORE]] [--scoreonly]
+</code></pre><p>Using <strong>--help</strong> argument will show detailed help.</p>
+<h4 id="required-arguments">Required arguments</h4>
+<p>The <strong>--data_dir</strong>, or <strong>-d</strong> argument designates full path to the <code>[dir]</code> where the database is to be installed.</p>
+<p>The <strong>--organism</strong>, or <strong>-g</strong> argument specifies organism code and genome assembly version. Organism-specific genome annotation data are placed under appropriate subfolders and automatically processed by the <code>server</code> module. Examples of organism codes: hg19, mm9, rn4, danRer7, dm3, ce6, sacCer3.</p>
+<h4 id="advanced-optional-arguments">Advanced (optional) arguments</h4>
+<p>The <strong>--featurenames</strong>, or <strong>-f</strong> argument will process one, or a comma-separatet list of genomic feature names. Useful when one knows which features to get. Example: evofold,gwasCatalog.</p>
+<p>The <strong>--max</strong>, or <strong>-m</strong> argument limits the number of genomic features <em>in each data type</em> to be processed. Useful when testing module&#39; functionality.</p>
+<p>The <strong>--score</strong>, or <strong>-s</strong> argument specifies score percentiles for <a href="dbcreatorFiltering.html">genome annotation data filtering</a>. Default: 25,50,75 percentiles.</p>
+<p>The <strong>--filteronly</strong>, or <strong>-o</strong> argument is used when the main, unfiltered, database has been created. This argument triggers <a href="dbcreatorFiltering.html">genome annotation data filtering</a>.</p>
+
                     
                     </section>
                 
@@ -695,10 +700,10 @@ python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
         </div>
 
         
-        <a href="../server/serverParallel.html" class="navigation navigation-prev " aria-label="Previous page: Parallelization"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreator.html" class="navigation navigation-prev " aria-label="Previous page: Dbcreator module"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hypergeom4/hypergeom4.html" class="navigation navigation-next " aria-label="Next page: Command line module"><i class="fa fa-angle-right"></i></a>
+        <a href="../dbcreator/dbcreator_encodeDCC.html" class="navigation navigation-next " aria-label="Next page: dbcreator_encodeDCC"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

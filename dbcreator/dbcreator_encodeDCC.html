@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Server FAQ | GenomeRunner</title>
+        <title>dbcreator_encodeDCC | GenomeRunner</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../hypergeom4/hypergeom4.html" />
+    <link rel="next" href="../dbcreator/dbcreatorWorks.html" />
     
     
-    <link rel="prev" href="../server/serverParallel.html" />
+    <link rel="prev" href="../dbcreator/dbcreator_ucsc.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.1.2" data-basepath=".." data-revision="1409098517178">
     
 
 <div class="book-summary">
@@ -195,7 +195,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.1.2" data-path="dbcreator/dbcreator_encodeDCC.html">
+        <li class="chapter active" data-level="6.1.2" data-path="dbcreator/dbcreator_encodeDCC.html">
             
                 
                     <a href="../dbcreator/dbcreator_encodeDCC.html">
@@ -399,7 +399,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.3.2" data-path="server/serverFAQ.html">
+        <li class="chapter " data-level="6.3.2" data-path="server/serverFAQ.html">
             
                 
                     <a href="../server/serverFAQ.html">
@@ -669,23 +669,14 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_12">
                     
-                        <h1 id="server-faq">server FAQ</h1>
-<h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
-<p>Yes, you can. GenomeRunner employs <a href="https://github.com/mher/flower" target="_blank">Celery distributed task queue</a> to run jobs. By default, one worker is started and can handle up to 4 parallel runs. You can increase the number of workers by setting the <strong>-w</strong> flag to the desired number of workers, e.g., 4.</p>
-<h3 id="-wow-can-i-see-what-my-workers-are-doing">* Wow! Can I &quot;see&quot; what my workers are doing?</h3>
-<p>You sure can. Run the following command and visit Celery on <a href="http://localhost:5555" target="_blank">http://localhost:5555</a></p>
-<pre><code>celery flower --broker=redis://localhost:7775/
-</code></pre><h3 id="-i-have-port-8000-blocked-by-an-evil-admin-firewall-can-i-run-genomerunner-on-a-different-port">* I have port 8000 blocked by <del>an evil admin</del> firewall. Can I run GenomeRunner on a different port?</h3>
-<p>You bet. Simply use <strong>-p</strong> parameter to set any port you wish, e.g., -p 8080.</p>
-<h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
-<p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
-<pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-# Start the server normally
-python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
-</code></pre>
+                        <h1 id="running-dbcreator_encodedcc-module">Running dbcreator_encodeDCC module</h1>
+<p>This module is used very similar to the <a href="dbcreator_ucsc.html">dbcreator_ucsc</a> module. Two arguments are different:</p>
+<p>The <strong>--featuregroups</strong> argument specifies the group name to process, taked from the <a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/" target="_blank">ENCODE DCC database</a>. Useful when specific groups are of interest. Example: wgEncodeAwgTfbsUniform</p>
+<p>The <strong>--max</strong>, or <strong>-m</strong> argument limits the number of genomic features <em>in each group</em> to be processed. Useful when testing module&#39; functionality.</p>
+<p>This module is still under testing.</p>
+
                     
                     </section>
                 
@@ -695,10 +686,10 @@ python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
         </div>
 
         
-        <a href="../server/serverParallel.html" class="navigation navigation-prev " aria-label="Previous page: Parallelization"><i class="fa fa-angle-left"></i></a>
+        <a href="../dbcreator/dbcreator_ucsc.html" class="navigation navigation-prev " aria-label="Previous page: dbcreator_ucsc"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hypergeom4/hypergeom4.html" class="navigation navigation-next " aria-label="Next page: Command line module"><i class="fa fa-angle-right"></i></a>
+        <a href="../dbcreator/dbcreatorWorks.html" class="navigation navigation-next " aria-label="Next page: How dbcreator works"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
