@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409098517178">
+    <div class="book"  data-level="6.3.2" data-basepath=".." data-revision="1409443180819">
     
 
 <div class="book-summary">
@@ -669,7 +669,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="server-faq">server FAQ</h1>
 <h3 id="-can-i-parallelize-genomerunners-runs">* Can I parallelize GenomeRunner&#39;s runs?</h3>
@@ -682,10 +682,15 @@
 <h3 id="-i-dont-have-many-ports-open-in-fact-only-port-80-http-is-available-on-my-machine---what-shall-i-do-to-run-genomerunner">* I don&#39;t have many ports open. In fact, only port 80 (http) is available on my machine - what shall I do to run GenomeRunner?</h3>
 <p>A workaround would be to create a redirection rule, and start the server on the redirected port</p>
 <pre><code># Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 # Start the server normally
 python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
-</code></pre>
+</code></pre><h3 id="-i-have-successfully-installed-and-configured-genomerunner-how-can-i-show-it-to-the-world">* I have successfully installed and configured GenomeRunner! How can I show it to the world?</h3>
+<p>Congratulations! If you are asking this question, you are likely behind a firewall. Then, rent a virtual private server (VPS), and redirect GenomeRunner traffic to its tcp port 80 by running locally:</p>
+<pre><code>autossh -M 0 -nNR 80:localhost:8080 root@server.ip.address
+</code></pre><p>Add other ssh-specific parameters, such as <code>-i ~/.ssh/id_rsa</code>. Note you should be able to login into remote shell as root.</p>
+<p>After redirecting, access GenomeRunner at <a href="http://server.ip.address" target="_blank">http://server.ip.address</a>.</p>
+
                     
                     </section>
                 
