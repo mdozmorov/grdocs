@@ -28,7 +28,18 @@ You bet. Simply use **-p** parameter to set any port you wish, e.g., -p 8080.
 A workaround would be to create a redirection rule, and start the server on the redirected port
 ```
 # Redirect port
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 # Start the server normally
 python -m grsnp.server -g hg19 -d [dir1],[dir2],[dir3] -r [dir1] -p 8080
 ```
+
+### * I have successfully installed and configured GenomeRunner! How can I show it to the world?
+
+Congratulations! If you are asking this question, you are likely behind a firewall. Then, rent a virtual private server (VPS), and redirect GenomeRunner traffic to its tcp port 80 by running locally:
+
+```
+autossh -M 0 -nNR 80:localhost:8080 root@server.ip.address
+```
+Add other ssh-specific parameters, such as `-i ~/.ssh/id_rsa`. Note you should be able to login into remote shell as root.
+
+After redirecting, access GenomeRunner at http://server.ip.address.
