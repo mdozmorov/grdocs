@@ -5,11 +5,11 @@ optimizer FAQ
 
 ### * Is it mandatory to run the optimizer module?
 
-No. If the `bkg_overlaps.gr` file was not created by the `optimizer` module, GenomeRunner will calculate overlap statistics on the fly. However, this wil lengthen run time, so be patient.
+No. If the `bkg_overlaps.gr` file was not created by the `optimizer` module, GenomeRunner will calculate overlap statistics on the fly. However, this wil lengthen the run time, so be patient.
 
-### * Does optimizer module process genomic features filtered by score?
+### * Does the optimizer module process regulatory datasets filtered by score?
 
-Yes. The `optimizer` module processes `grsnp_db*` folders with genomic features filtered by score and creates the `bkg_overlaps.gr` files for each folder.
+Yes. The `optimizer` module processes `grsnp_db*` folders with regulatory datasets filtered by score and creates the `bkg_overlaps.gr` files for each folder.
 
 ### * I started the optimizer module but it takes too long. Can I terminate it without losing what has been pre-calculated?
 

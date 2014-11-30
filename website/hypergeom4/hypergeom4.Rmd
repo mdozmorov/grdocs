@@ -8,7 +8,7 @@ opts_chunk$set(cache.path='cache/', fig.path='img/', cache=FALSE, tidy=TRUE, fig
 Command line module
 ========================================================
 
-GenomeRunner can be run from command line by using the `hypergeom4` submodule. As with the [server](../server/server.md) module, first create a [database](../dbcreator/dbcreator.md) and define at least one [custom background](../dbcreator/dbcreatorBackground.md).
+GenomeRunner can be run from command line by using the `hypergeom4` module. As with the [server](../server/server.md) module, first create a [database](../dbcreator/dbcreator.md) and define at least one [custom background](../dbcreator/dbcreatorBackground.md).
 
 There are 3 mandatory arguments:
 - `fois.txt` - a text file containing paths to the sets of SNPs of interest. This file should contain at least one path. Example:
@@ -24,7 +24,7 @@ There are 3 mandatory arguments:
 /home/testuser/db_4.10_05.12.2014/grsnp_db/hg19/ENCODE/BroadHistone/Tier1/Gm12878/wgEncodeBroadHistoneGm12878H3k27acStdPk.bed.gz
 /home/testuser/db_4.10_05.12.2014/grsnp_db/hg19/ENCODE/BroadHistone/Tier1/Gm12878/wgEncodeBroadHistoneGm12878H3k4me1StdPk.bed.gz
 ```
-- path to the background file. Example:
+- a path to the background file. Example:
 ```
 /home/testuser/db_4.10_05.12.2014/custom_data/backgrounds/hg19/1snp138Common.bed.gz
 ```
@@ -35,9 +35,9 @@ python -m grsnp.hypergeom4 fois.txt gfs.txt /home/testuser/db_4.10_05.12.2014/cu
 ```
 
 Use the following arguments to tweak the analysis:
-- **--run_files_dir**, or **-r** - path to folder where the results will be outputted. Default: current folder
-- **--pv_adjust**, or **-v** - method for p-value adjustment. Default: fdr. Possible values (case sensitive): bonferroni, holm, hochberg, hommel, BH, BY, fdr, None.
-- **--run_annotation**, or **-a** - for each set of SNPs, annotates each SNP by the number of their co-localization with genomic features from the `gfs.txt` file.
+- **--run_files_dir**, or **-r** - a path to a folder where the results will be outputted. Default: current folder
+- **--pv_adjust**, or **-v** - a method for p-value adjustment. Default: fdr. Possible values (case sensitive): bonferroni, holm, hochberg, hommel, BH, BY, fdr, None.
+- **--run_annotation**, or **-a** - for each set of SNPs, run annotation analysis, i.e., annotate each SNP in a set by the number of co-localization with the regulatory datasets from the `gfs.txt` file.
 
 Use the aforementioned arguments as follows:
 ```

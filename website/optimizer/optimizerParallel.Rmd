@@ -9,7 +9,7 @@ Parallelizing optimizer module
 ========================================================
 The `optimizer` module takes considerable amount of time and computer resources to run. To speed it up, the `optimizer` module uses [Celery distributed task queue](http://www.celeryproject.org/) with [Redis](http://redis.io/) backend.
 
-To gain maximum speedup, it is recommended to set up GenomeRunner and identical [databases](../dbcreator/dbcreator_ucsc.md) on multiple computers in the same network and configure celery workers to interact with Redis broker on the host computer.
+To gain maximum speedup, it is recommended to set up GenomeRunner and identical [databases](../dbcreator/dbcreator_ucsc.md) on multiple computers within the same network and configure celery workers to interact with Redis broker on the host computer.
 
 ![Parallelization overview](../figures/CeleryRedis.png "Parallelization overview")
 

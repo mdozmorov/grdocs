@@ -3,6 +3,8 @@
 Uninstalling GenomeRunner
 ========================================================
 
+We are sorry to see you go. Consider to contact ![Mikhail Dozmorov at gmail](../figures/e-mail.png "Mikhail Dozmorov") for any assistance.
+
 To remove GenomeRunner from your computer, run
 
 ```
